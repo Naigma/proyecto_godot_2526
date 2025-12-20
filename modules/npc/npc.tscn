@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://v2160yea1f5f"]
+
+[ext_resource type="Script" uid="uid://o5ukxibmgl4e" path="res://modules/npc/npc.gd" id="1_2t726"]
+[ext_resource type="Texture2D" uid="uid://cbapop31wyj7o" path="res://assets/dungeon_tileset_ii/0x72_DungeonTilesetII_v1.7.png" id="2_mtbch"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onl7p"]
+atlas = ExtResource("2_mtbch")
+region = Rect2(128, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uaj5u"]
+atlas = ExtResource("2_mtbch")
+region = Rect2(144, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_riolo"]
+atlas = ExtResource("2_mtbch")
+region = Rect2(160, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fswnw"]
+atlas = ExtResource("2_mtbch")
+region = Rect2(176, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8h6d0"]
+atlas = ExtResource("2_mtbch")
+region = Rect2(192, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdi5g"]
+atlas = ExtResource("2_mtbch")
+region = Rect2(208, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lsim"]
+atlas = ExtResource("2_mtbch")
+region = Rect2(224, 160, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sl643"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onl7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uaj5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riolo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fswnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8h6d0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdi5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lsim")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.5
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukiok"]
+radius = 8.0
+height = 22.0
+
+[node name="NPC" type="CharacterBody2D"]
+script = ExtResource("1_2t726")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sl643")
+autoplay = "default"
+frame_progress = 0.60073817
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("CapsuleShape2D_ukiok")
+
+[node name="DialogueLabel" type="Label" parent="."]
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = -26.0
+offset_right = 57.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0

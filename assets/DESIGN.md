@@ -9,7 +9,9 @@
 #Gratis
 -Palo corto
 #Por valor/misiones
--Espadas
+-Espada
+-Palos
+-Ladrillos/piedras
 -Mazos
 -Hachas
 -Cuchillo
@@ -29,3 +31,4 @@
 -Pinchos
 #Activables
 -Por palanca botón
+#Textos
