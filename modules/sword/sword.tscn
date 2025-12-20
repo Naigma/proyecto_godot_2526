@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://dpxis4d66dqem"]
 
-[ext_resource type="Texture2D" uid="uid://b3r2yx1hvhx4j" path="res://assets/dungeon_tileset_ii/tileset_jonathan.png.png" id="1_81xyg"]
 [ext_resource type="Script" uid="uid://0huweqyhy24q" path="res://modules/sword/sword.gd" id="1_351gm"]
+[ext_resource type="Texture2D" uid="uid://huxpbx5og7fr" path="res://assets/dungeon_tileset_ii/tileset_jonathan.png" id="2_351gm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_351gm"]
 radius = 5.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4d0i3"]
-atlas = ExtResource("1_81xyg")
-region = Rect2(304, 128, 16, 32)
+atlas = ExtResource("2_351gm")
+region = Rect2(304, 0, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sfcmx"]
 animations = [{
@@ -29,3 +29,9 @@ shape = SubResource("CapsuleShape2D_351gm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sfcmx")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.33
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

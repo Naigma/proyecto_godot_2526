@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dqpskonrnh6cg"]
+[gd_scene load_steps=13 format=3 uid="uid://dqpskonrnh6cg"]
 
 [ext_resource type="Script" uid="uid://ckmbsg3rp2py1" path="res://modules/player/player.gd" id="1_qgxqk"]
-[ext_resource type="Texture2D" uid="uid://b3r2yx1hvhx4j" path="res://assets/dungeon_tileset_ii/tileset_jonathan.png.png" id="2_qgxqk"]
+[ext_resource type="Texture2D" uid="uid://huxpbx5og7fr" path="res://assets/dungeon_tileset_ii/tileset_jonathan.png" id="2_qgxqk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m7q0d"]
 atlas = ExtResource("2_qgxqk")
@@ -9,19 +9,27 @@ region = Rect2(128, 32, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_55gox"]
 atlas = ExtResource("2_qgxqk")
-region = Rect2(192, 32, 16, 32)
+region = Rect2(144, 32, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ue0ku"]
 atlas = ExtResource("2_qgxqk")
-region = Rect2(208, 32, 16, 32)
+region = Rect2(160, 32, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hd5yx"]
 atlas = ExtResource("2_qgxqk")
-region = Rect2(224, 32, 16, 32)
+region = Rect2(176, 32, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5rkg0"]
 atlas = ExtResource("2_qgxqk")
-region = Rect2(240, 32, 16, 32)
+region = Rect2(192, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ej5i3"]
+atlas = ExtResource("2_qgxqk")
+region = Rect2(208, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhhsu"]
+atlas = ExtResource("2_qgxqk")
+region = Rect2(224, 32, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vwok7"]
 animations = [{
@@ -40,6 +48,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5rkg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ej5i3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhhsu")
 }],
 "loop": true,
 "name": &"walk",

@@ -1,24 +1,24 @@
 [gd_scene load_steps=7 format=3 uid="uid://ccfy6fv8o6y8r"]
 
 [ext_resource type="Script" uid="uid://bswpwr514tcgs" path="res://modules/enemy_stupid/enemy_stupid.gd" id="1_ns2yd"]
-[ext_resource type="Texture2D" uid="uid://b3r2yx1hvhx4j" path="res://assets/dungeon_tileset_ii/tileset_jonathan.png.png" id="2_nh1pq"]
+[ext_resource type="Texture2D" uid="uid://huxpbx5og7fr" path="res://assets/dungeon_tileset_ii/tileset_jonathan.png" id="2_ns2yd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh1pq"]
+atlas = ExtResource("2_ns2yd")
+region = Rect2(368, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ogxh1"]
-atlas = ExtResource("2_nh1pq")
-region = Rect2(384, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_et5mq"]
-atlas = ExtResource("2_nh1pq")
-region = Rect2(400, 0, 16, 32)
+atlas = ExtResource("2_ns2yd")
+region = Rect2(384, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yf7s2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ogxh1")
+"texture": SubResource("AtlasTexture_nh1pq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_et5mq")
+"texture": SubResource("AtlasTexture_ogxh1")
 }],
 "loop": true,
 "name": &"default",
@@ -27,7 +27,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ns2yd"]
 radius = 6.0
-height = 12.0
+height = 14.0
 
 [node name="EnemyStupid" type="CharacterBody2D"]
 script = ExtResource("1_ns2yd")
@@ -36,5 +36,5 @@ script = ExtResource("1_ns2yd")
 sprite_frames = SubResource("SpriteFrames_yf7s2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 11)
+position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_ns2yd")
