@@ -19,4 +19,4 @@ position = Vector2(416, 240)
 
 [node name="NPC" parent="." instance=ExtResource("3_hx33g")]
 position = Vector2(105, 174)
-dialogue = "me cachis que tal"
+dialogue = "así se usa una bateria bomboclat con la tecla b le das y la tiras antes de que explote"
