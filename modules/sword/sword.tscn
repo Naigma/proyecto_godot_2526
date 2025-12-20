@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpxis4d66dqem"]
+[gd_scene load_steps=6 format=3 uid="uid://dpxis4d66dqem"]
 
 [ext_resource type="Texture2D" uid="uid://b3r2yx1hvhx4j" path="res://assets/dungeon_tileset_ii/tileset_jonathan.png.png" id="1_81xyg"]
+[ext_resource type="Script" uid="uid://0huweqyhy24q" path="res://modules/sword/sword.gd" id="1_351gm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_351gm"]
 radius = 5.0
@@ -21,6 +22,7 @@ animations = [{
 }]
 
 [node name="Sword" type="Area2D"]
+script = ExtResource("1_351gm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_351gm")
