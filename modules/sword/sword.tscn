@@ -1,3 +1,29 @@
-[gd_scene format=3 uid="uid://dpxis4d66dqem"]
+[gd_scene load_steps=5 format=3 uid="uid://dpxis4d66dqem"]
 
-[node name="Sword" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://b3r2yx1hvhx4j" path="res://assets/dungeon_tileset_ii/tileset_jonathan.png.png" id="1_81xyg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_351gm"]
+radius = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d0i3"]
+atlas = ExtResource("1_81xyg")
+region = Rect2(304, 128, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sfcmx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4d0i3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Sword" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_351gm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sfcmx")
