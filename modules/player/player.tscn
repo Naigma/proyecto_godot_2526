@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dqpskonrnh6cg"]
+[gd_scene load_steps=14 format=3 uid="uid://dqpskonrnh6cg"]
 
 [ext_resource type="Script" uid="uid://ckmbsg3rp2py1" path="res://modules/player/player.gd" id="1_qgxqk"]
 [ext_resource type="Texture2D" uid="uid://huxpbx5og7fr" path="res://assets/dungeon_tileset_ii/tileset_jonathan.png" id="2_qgxqk"]
+[ext_resource type="PackedScene" uid="uid://dpxis4d66dqem" path="res://modules/sword/sword.tscn" id="3_m7q0d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m7q0d"]
 atlas = ExtResource("2_qgxqk")
@@ -86,3 +87,9 @@ shape = SubResource("CapsuleShape2D_qgxqk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(-1, 5)
 shape = SubResource("CircleShape2D_qgxqk")
+
+[node name="WeaponPivot" type="Node2D" parent="."]
+position = Vector2(-1, 5)
+
+[node name="Sword" parent="WeaponPivot" instance=ExtResource("3_m7q0d")]
+position = Vector2(23, 0)

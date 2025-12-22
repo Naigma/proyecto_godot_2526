@@ -3,6 +3,7 @@ class_name Player
 @onready var sprite_player: AnimatedSprite2D = $SpritePlayer
 @export var speed : float = 100.00
 @onready var interaction_area: Area2D = $InteractionArea
+@onready var weapon_pivot: Node2D = $WeaponPivot
 
 func _ready() -> void:
 	pass
@@ -23,3 +24,5 @@ func _process(delta: float) -> void:
 		for body in bodies:
 			if body.has_method("interact"):
 				body.interact()
+	var mouse_position : Vector2 = get_global_mouse_position()
+	weapon_pivot.look_at(mouse_position)
