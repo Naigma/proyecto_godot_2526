@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccfy6fv8o6y8r"]
+
+[ext_resource type="Script" uid="uid://bswpwr514tcgs" path="res://modules/enemy_stupid/enemy_stupid.gd" id="1_ns2yd"]
+[ext_resource type="Texture2D" uid="uid://huxpbx5og7fr" path="res://assets/dungeon_tileset_ii/tileset_jonathan.png" id="2_ns2yd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh1pq"]
+atlas = ExtResource("2_ns2yd")
+region = Rect2(368, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogxh1"]
+atlas = ExtResource("2_ns2yd")
+region = Rect2(384, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf7s2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nh1pq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogxh1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ns2yd"]
+radius = 6.0
+height = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ns2yd"]
+radius = 7.0
+
+[node name="EnemyStupid" type="CharacterBody2D"]
+script = ExtResource("1_ns2yd")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yf7s2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 3)
+shape = SubResource("CapsuleShape2D_ns2yd")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="DamageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(1, 3)
+shape = SubResource("CircleShape2D_ns2yd")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

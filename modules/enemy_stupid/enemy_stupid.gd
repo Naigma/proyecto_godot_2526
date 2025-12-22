@@ -5,8 +5,11 @@ class_name EnemyStupid
 @onready var animator: AnimatedSprite2D = $Sprite2D
 @onready var damage_area: Area2D = $DamageArea
 
+func _ready() -> void:
+	animator.play("default")
+
 func _process(delta: float) -> void:
-	pass
+	animator.play("default")
 	
 func take_damage(damage: int):
 	health = health - damage
