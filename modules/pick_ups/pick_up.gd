@@ -6,3 +6,7 @@ class_name pick_up
 
 func _ready() -> void:
 	animator.play(pick_type)
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player:
+		queue_free()

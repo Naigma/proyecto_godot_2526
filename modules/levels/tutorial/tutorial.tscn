@@ -44,4 +44,3 @@ npc_type = "dinosaur"
 
 [node name="PickUp" parent="." instance=ExtResource("5_n2eix")]
 position = Vector2(623, 213)
-pick_type = "red_potion"
