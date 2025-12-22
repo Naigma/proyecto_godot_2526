@@ -9,7 +9,6 @@
 #Gratis
 -Palo corto
 #Por valor/misiones
--Espada
 -Palos
 -Ladrillos/piedras
 -Mazos
@@ -32,3 +31,4 @@
 #Activables
 -Por palanca botón
 #Textos
+-Batería bomboclat

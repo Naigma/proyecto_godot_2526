@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://qs8d6amfty5y"]
+[gd_scene load_steps=5 format=4 uid="uid://qs8d6amfty5y"]
 
 [ext_resource type="TileSet" uid="uid://btkypbfva5y1w" path="res://modules/levels/dungeon_tileset.tres" id="1_tgt3j"]
 [ext_resource type="PackedScene" uid="uid://dqpskonrnh6cg" path="res://modules/player/player.tscn" id="2_3rof0"]
 [ext_resource type="PackedScene" uid="uid://v2160yea1f5f" path="res://modules/npc/npc.tscn" id="3_hx33g"]
-[ext_resource type="PackedScene" uid="uid://dpxis4d66dqem" path="res://modules/sword/sword.tscn" id="3_n2eix"]
 [ext_resource type="PackedScene" uid="uid://ccfy6fv8o6y8r" path="res://modules/enemy_stupid/enemy_stupid.tscn" id="5_oqhi0"]
 
 [node name="Tutorial" type="Node2D"]
@@ -13,19 +12,31 @@ tile_map_data = PackedByteArray("AAAEAAEAAAACAAEAAAADAAEAAAABAAEAAAADAAIAAAABAAE
 tile_set = ExtResource("1_tgt3j")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAGABYAAAAJAAYAAAAGABcAAAAJAAcAAAAGABEAAAAJAAcAAAAGAAoAAAAJAAYAAAAGAAsAAAAJAAcAAABFABQAAAACAA4AAFBFABUAAAADAA4AAFBEABMAAAABAA8AAFBEABQAAAACAA8AAFBEABUAAAADAA8AAFBEABYAAAAEAA8AAFBDABMAAAABABAAAFBDABQAAAACABAAAFBDABUAAAADABAAAFBDABYAAAAEABAAAFAFABEAAAAVAAoAAGAGABAAAAAIAAYAAAANABgAAAAFAAUAAAANABkAAAAFAAYAAAANABoAAAAFAAcAAAAMAAUAAAAFAAUAAAAMAAYAAAAFAAYAAAAMAAcAAAAFAAcAAAA7ABgAAAAFAAUAAAA7ABkAAAAFAAYAAAA7ABoAAAAFAAcAAAA7AAUAAAAFAAUAAAA7AAYAAAAFAAYAAAA7AAcAAAAFAAcAAAAkAA4AAAAFAAUAAAAkAA8AAAAFAAYAAAAkABAAAAAFAAcAAAAqAA8AAAAHABkAAAAqAA4AAAAHABgAAAArAA8AAAAIABkAAAArAA4AAAAIABgAAAAEABYAAAAUABUAAGAEABcAAAATABUAAGAEABgAAAASABUAAGAFABcAAAAVABUAAGAEAB0AAAASABcAAGAEABwAAAATABcAAGAEABsAAAAUABcAAGAGABsAAAAIAAYAAAAGABwAAAAIAAcAAAAFAAsAAAASABQAAGArAAIAAAAIAAYAAAArAAMAAAAIAAcAAAArAAEAAAASABgAAAAlAAMAAAATABoAAAAnABAAAAASABsAAAAtABAAAAASABsAAGAtAAwAAAASABsAAGApAAwAAAASABsAADAkABMAAAASABsAAAAqABUAAAASABsAAGAuABIAAAASABsAAAA=")
+tile_map_data = PackedByteArray("AABFABQAAAACAA4AAFBFABUAAAADAA4AAFBEABMAAAABAA8AAFBEABQAAAACAA8AAFBEABUAAAADAA8AAFBEABYAAAAEAA8AAFBDABMAAAABABAAAFBDABQAAAACABAAAFBDABUAAAADABAAAFBDABYAAAAEABAAAFAFABEAAAAVAAoAAGANABgAAAAFAAUAAAANABkAAAAFAAYAAAANABoAAAAFAAcAAAAMAAUAAAAFAAUAAAAMAAYAAAAFAAYAAAAMAAcAAAAFAAcAAAA7ABgAAAAFAAUAAAA7ABkAAAAFAAYAAAA7ABoAAAAFAAcAAAA7AAUAAAAFAAUAAAA7AAYAAAAFAAYAAAA7AAcAAAAFAAcAAAAkAA4AAAAFAAUAAAAkAA8AAAAFAAYAAAAkABAAAAAFAAcAAAAqAA8AAAAHABkAAAAqAA4AAAAHABgAAAArAA8AAAAIABkAAAArAA4AAAAIABgAAAAEABYAAAAUABUAAGAEABcAAAATABUAAGAEABgAAAASABUAAGAFABcAAAAVABUAAGAEAB0AAAASABcAAGAEABwAAAATABcAAGAEABsAAAAUABcAAGAFAAsAAAASABQAAGArAAEAAAASABgAAAAlAAMAAAATABoAAAAnABAAAAASABsAAAAtABAAAAASABsAAGAtAAwAAAASABsAAGApAAwAAAASABsAADAkABMAAAASABsAAAAqABUAAAASABsAAGAuABIAAAASABsAAAA=")
 tile_set = ExtResource("1_tgt3j")
 
 [node name="Player" parent="." instance=ExtResource("2_3rof0")]
 position = Vector2(440, 232)
 
-[node name="Sword" parent="Player" instance=ExtResource("3_n2eix")]
-position = Vector2(32, -8)
-rotation = 1.0367255
-
 [node name="NPC" parent="." instance=ExtResource("3_hx33g")]
-position = Vector2(105, 174)
+position = Vector2(105, 175)
 dialogue = "así se usa una bateria bomboclat con la tecla b le das y la tiras antes de que explote"
+npc_type = "wizard"
 
 [node name="EnemyStupid" parent="." instance=ExtResource("5_oqhi0")]
 position = Vector2(520, 248)
+
+[node name="NPC2" parent="." instance=ExtResource("3_hx33g")]
+position = Vector2(104, 272)
+dialogue = "las  armas para meter pepinazos"
+npc_type = "knight"
+
+[node name="NPC3" parent="." instance=ExtResource("3_hx33g")]
+position = Vector2(102, 368)
+dialogue = "las pociones sirven para fortalecerte"
+npc_type = "witch"
+
+[node name="NPC4" parent="." instance=ExtResource("3_hx33g")]
+position = Vector2(104, 447)
+dialogue = "la vida se recoge con los corazones y si te quedas sin mueres"
+npc_type = "dinosaur"
