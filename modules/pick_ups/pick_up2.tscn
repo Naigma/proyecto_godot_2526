@@ -1,0 +1,178 @@
+[gd_scene load_steps=20 format=3 uid="uid://l0haj8w3dwf8"]
+
+[ext_resource type="Script" uid="uid://dt7l4x2nu6rth" path="res://modules/pick_ups/pick_up.gd" id="1_on8bw"]
+[ext_resource type="Texture2D" uid="uid://huxpbx5og7fr" path="res://assets/dungeon_tileset_ii/tileset_jonathan.png" id="2_8o3ao"]
+[ext_resource type="Texture2D" uid="uid://cbapop31wyj7o" path="res://assets/dungeon_tileset_ii/0x72_DungeonTilesetII_v1.7.png" id="3_6s83f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_71qa1"]
+radius = 19.104973
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jfyd"]
+atlas = ExtResource("2_8o3ao")
+region = Rect2(304, 336, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lym4h"]
+atlas = ExtResource("2_8o3ao")
+region = Rect2(288, 385, 8, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iduwm"]
+atlas = ExtResource("2_8o3ao")
+region = Rect2(296, 385, 8, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3afmp"]
+atlas = ExtResource("2_8o3ao")
+region = Rect2(304, 385, 8, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xinr"]
+atlas = ExtResource("2_8o3ao")
+region = Rect2(312, 385, 8, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dy2w"]
+atlas = ExtResource("2_8o3ao")
+region = Rect2(288, 336, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_185sy"]
+atlas = ExtResource("2_8o3ao")
+region = Rect2(320, 336, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovugd"]
+atlas = ExtResource("2_8o3ao")
+region = Rect2(336, 336, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ax3g6"]
+atlas = ExtResource("2_8o3ao")
+region = Rect2(288, 368, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqp8s"]
+atlas = ExtResource("2_8o3ao")
+region = Rect2(304, 368, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7mdn"]
+atlas = ExtResource("3_6s83f")
+region = Rect2(304, 352, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_002r5"]
+atlas = ExtResource("3_6s83f")
+region = Rect2(320, 352, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plt7g"]
+atlas = ExtResource("3_6s83f")
+region = Rect2(288, 352, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpcty"]
+atlas = ExtResource("3_6s83f")
+region = Rect2(336, 352, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mqp8s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jfyd")
+}],
+"loop": true,
+"name": &"burger",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lym4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iduwm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3afmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xinr")
+}],
+"loop": true,
+"name": &"coin",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dy2w")
+}],
+"loop": true,
+"name": &"coke",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_185sy")
+}],
+"loop": true,
+"name": &"egg",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovugd")
+}],
+"loop": true,
+"name": &"gummy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ax3g6")
+}],
+"loop": true,
+"name": &"heart",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqp8s")
+}],
+"loop": true,
+"name": &"mid_heart",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7mdn")
+}],
+"loop": true,
+"name": &"mini_blue_potion",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_002r5")
+}],
+"loop": true,
+"name": &"mini_green_potion",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plt7g")
+}],
+"loop": true,
+"name": &"mini_red_potion",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpcty")
+}],
+"loop": true,
+"name": &"mini_yellow_potion",
+"speed": 5.0
+}]
+
+[node name="PickUp" type="Area2D"]
+script = ExtResource("1_on8bw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_71qa1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.7683716e-07, 4.7683716e-07)
+scale = Vector2(0.75000006, 0.75000006)
+sprite_frames = SubResource("SpriteFrames_mqp8s")
+animation = &"mid_heart"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

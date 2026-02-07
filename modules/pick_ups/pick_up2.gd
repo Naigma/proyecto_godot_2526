@@ -1,5 +1,5 @@
 extends Area2D
-class_name pick_upd
+class_name pick_up
 
 @export var pick_type: String
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
@@ -10,5 +10,5 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		if pick_type == "heart":
-			body.take_damage(-1)
+			body.take_damage(-0.5)
 		queue_free()
