@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://huxpbx5og7fr" path="res://assets/dungeon_tileset_ii/tileset_jonathan.png" id="2_351gm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_351gm"]
-radius = 5.0
-height = 22.0
+radius = 5.4054046
+height = 21.999998
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4d0i3"]
 atlas = ExtResource("2_351gm")
@@ -27,7 +27,8 @@ rotation = -1.5707964
 script = ExtResource("1_351gm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, 4.335)
+scale = Vector2(0.74, 0.974)
 shape = SubResource("CapsuleShape2D_351gm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
