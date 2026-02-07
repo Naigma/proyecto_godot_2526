@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://qs8d6amfty5y"]
+[gd_scene load_steps=6 format=4 uid="uid://qs8d6amfty5y"]
 
 [ext_resource type="TileSet" uid="uid://btkypbfva5y1w" path="res://modules/levels/dungeon_tileset.tres" id="1_tgt3j"]
 [ext_resource type="PackedScene" uid="uid://dqpskonrnh6cg" path="res://modules/player/player.tscn" id="2_3rof0"]
 [ext_resource type="PackedScene" uid="uid://v2160yea1f5f" path="res://modules/npc/npc.tscn" id="3_hx33g"]
 [ext_resource type="PackedScene" uid="uid://jd8qicwni0tu" path="res://modules/pick_ups/pick_up.tscn" id="5_n2eix"]
 [ext_resource type="PackedScene" uid="uid://ccfy6fv8o6y8r" path="res://modules/enemy_stupid/enemy_stupid.tscn" id="5_oqhi0"]
-[ext_resource type="PackedScene" uid="uid://l0haj8w3dwf8" path="res://modules/pick_ups/pick_up2.tscn" id="6_oqhi0"]
 
 [node name="Tutorial" type="Node2D"]
 
@@ -46,7 +45,3 @@ npc_type = "dinosaur"
 [node name="PickUp" parent="." instance=ExtResource("5_n2eix")]
 position = Vector2(623, 213)
 pick_type = "heart"
-
-[node name="PickUp2" parent="." instance=ExtResource("6_oqhi0")]
-position = Vector2(549, 287)
-pick_type = "halfheart"
