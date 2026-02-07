@@ -7,15 +7,15 @@
 radius = 5.4054046
 height = 21.999998
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4d0i3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_351gm"]
 atlas = ExtResource("2_351gm")
-region = Rect2(304, 0, 16, 32)
+region = Rect2(336, 0, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sfcmx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4d0i3")
+"texture": SubResource("AtlasTexture_351gm")
 }],
 "loop": true,
 "name": &"default",
