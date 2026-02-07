@@ -1,4 +1,5 @@
 extends Node
+class_name FSM
 
 @export var initial_state : State
 
@@ -9,7 +10,7 @@ func _ready() -> void:
 	for child in get_children():
 		if child is State:
 			states[child.name.to_lower()] = child
-			child.transitioned.connect(on_child_transition)		
+			child.transitioned.connect(on_child_transition)
 	
 	if initial_state:
 		initial_state.enter()
