@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://huxpbx5og7fr" path="res://assets/dungeon_tileset_ii/tileset_jonathan.png" id="2_ns2yd"]
 [ext_resource type="Script" uid="uid://4okd8uhdjjem" path="res://modules/FSM/fsm.gd" id="3_ogxh1"]
 [ext_resource type="Script" uid="uid://18tt443d04ff" path="res://modules/FSM/follow_state.gd" id="4_et5mq"]
-[ext_resource type="Script" path="res://modules/FSM/idle_state.gd" id="5_et5mq"]
+[ext_resource type="Script" uid="uid://edoxuinj6t8r" path="res://modules/FSM/idle_state.gd" id="5_et5mq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nh1pq"]
 atlas = ExtResource("2_ns2yd")
