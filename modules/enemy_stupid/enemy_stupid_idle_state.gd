@@ -1,5 +1,5 @@
 extends State
-class_name IdleState
+class_name EnemyStupidIdleState
 
 @export var enemy: CharacterBody2D
 @export var move_speed := 10.0
@@ -32,4 +32,4 @@ func physics_update(_delta: float):
 	var direction = player.global_position - enemy.global_position
 	
 	if direction.length() < 80:
-		transitioned.emit(self, "followstate")
+		transitioned.emit(self, "follow")
