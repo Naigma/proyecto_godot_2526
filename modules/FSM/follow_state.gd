@@ -18,3 +18,6 @@ func physics_update(_delta: float):
 		enemy.velocity = Vector2.ZERO
 	
 	enemy.move_and_slide()
+
+	if direction.length() > 50:
+		transitioned.emit(self,"idlestate")
