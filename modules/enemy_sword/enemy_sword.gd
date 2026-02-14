@@ -11,5 +11,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	animator.play("walk")
 	
+	#TODO: Eliminar esto, es debug.
+	if Input.is_action_just_pressed("ui_accept"):
+		take_damage(1)
+	
 func take_damage(damage : int):
-	pass
+	health = health - damage
+	animator.modulate = Color.INDIAN_RED
+	if health < 1:
+		queue_free()
+	await get_tree().create_timer(0.1).timeout
+	animator.modulate = Color.WHITE
