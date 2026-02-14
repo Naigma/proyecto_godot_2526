@@ -3,6 +3,7 @@ class_name EnemyKami
 
 @export var health : int = 30
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
+@onready var explosion_area: Area2D = $ExplosionArea
 
 func _ready() -> void:
 	animator.play("idle")
@@ -16,7 +17,6 @@ func take_damage(damage: int):
 	if health < 1:
 		queue_free()
 	await get_tree().create_timer(0.1).timeout
-	animator.modulate = Color.WHITE	 
-
+	animator.modulate = Color.WHITE
 
  

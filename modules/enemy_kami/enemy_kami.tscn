@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bnb65r4ewgdbb"]
+[gd_scene load_steps=17 format=3 uid="uid://bnb65r4ewgdbb"]
 
 [ext_resource type="Script" uid="uid://cxng575osttpi" path="res://modules/enemy_kami/enemy_kami.gd" id="1_r0bp3"]
 [ext_resource type="Texture2D" uid="uid://3m8ci0alobe1" path="res://assets/dungeon_tileset_ii/frames/big_demon_idle_anim_f0.png" id="2_ea3x1"]
@@ -55,13 +55,16 @@ animations = [{
 radius = 12.0
 height = 32.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_eal45"]
+radius = 52.153618
+
 [node name="EnemyKami" type="CharacterBody2D"]
 script = ExtResource("1_r0bp3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0t8f2")
 animation = &"walk"
-frame_progress = 0.74432474
+frame_progress = 0.144554
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)
@@ -86,3 +89,8 @@ metadata/_custom_type_script = "uid://dt2k3jb8a00nl"
 script = ExtResource("13_eal45")
 enemy = NodePath("../..")
 metadata/_custom_type_script = "uid://bkgg1m6gt4bvs"
+
+[node name="ExplosionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionArea"]
+shape = SubResource("CircleShape2D_eal45")
