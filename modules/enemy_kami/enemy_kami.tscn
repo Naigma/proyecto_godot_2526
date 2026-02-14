@@ -1,0 +1,82 @@
+[gd_scene load_steps=15 format=3 uid="uid://bnb65r4ewgdbb"]
+
+[ext_resource type="Script" uid="uid://cxng575osttpi" path="res://modules/enemy_kami/enemy_kami.gd" id="1_r0bp3"]
+[ext_resource type="Texture2D" uid="uid://3m8ci0alobe1" path="res://assets/dungeon_tileset_ii/frames/big_demon_idle_anim_f0.png" id="2_ea3x1"]
+[ext_resource type="Texture2D" uid="uid://d01xuyx1twbo8" path="res://assets/dungeon_tileset_ii/frames/big_demon_run_anim_f0.png" id="2_v2n44"]
+[ext_resource type="Texture2D" uid="uid://bly60igkoaqgo" path="res://assets/dungeon_tileset_ii/frames/big_demon_idle_anim_f1.png" id="3_0t8f2"]
+[ext_resource type="Texture2D" uid="uid://dq7lgkntpw3wl" path="res://assets/dungeon_tileset_ii/frames/big_demon_run_anim_f1.png" id="3_2pyna"]
+[ext_resource type="Texture2D" uid="uid://cyjl1df7v533a" path="res://assets/dungeon_tileset_ii/frames/big_demon_idle_anim_f2.png" id="4_aivkm"]
+[ext_resource type="Texture2D" uid="uid://dkh55tmlmuksw" path="res://assets/dungeon_tileset_ii/frames/big_demon_run_anim_f2.png" id="4_wb54x"]
+[ext_resource type="Texture2D" uid="uid://tit7dg0bv2fc" path="res://assets/dungeon_tileset_ii/frames/big_demon_run_anim_f3.png" id="5_ea3x1"]
+[ext_resource type="Texture2D" uid="uid://c81lr0fp3ll0o" path="res://assets/dungeon_tileset_ii/frames/big_demon_idle_anim_f3.png" id="5_xlkcu"]
+[ext_resource type="Script" uid="uid://4okd8uhdjjem" path="res://modules/FSM/fsm.gd" id="10_aivkm"]
+[ext_resource type="Script" uid="uid://dt2k3jb8a00nl" path="res://modules/enemy_kami/enmy_kami_follow_state.gd" id="11_xlkcu"]
+[ext_resource type="Script" uid="uid://pwy38bm2k1yw" path="res://modules/enemy_kami/enemy_kami_idle_state.gd" id="12_xlkcu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0t8f2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ea3x1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0t8f2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_aivkm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xlkcu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_v2n44")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2pyna")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wb54x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ea3x1")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aivkm"]
+radius = 12.0
+height = 32.0
+
+[node name="EnemyKami" type="CharacterBody2D"]
+script = ExtResource("1_r0bp3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0t8f2")
+animation = &"walk"
+frame_progress = 0.25354233
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+shape = SubResource("CapsuleShape2D_aivkm")
+
+[node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("10_aivkm")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://4okd8uhdjjem"
+
+[node name="Follow" type="Node" parent="FSM" node_paths=PackedStringArray("enemy")]
+script = ExtResource("11_xlkcu")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://dt2k3jb8a00nl"
+
+[node name="Idle" type="Node" parent="FSM" node_paths=PackedStringArray("enemy")]
+script = ExtResource("12_xlkcu")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://pwy38bm2k1yw"
