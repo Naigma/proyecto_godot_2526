@@ -8,7 +8,7 @@ class_name EnemySword
 func _ready() -> void:
 	animator.play("walk")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	animator.play("walk")
 	
 	#TODO: Eliminar esto, es debug.

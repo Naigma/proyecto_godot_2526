@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ylarvawkus4a"]
+[gd_scene load_steps=13 format=3 uid="uid://ylarvawkus4a"]
 
 [ext_resource type="Texture2D" uid="uid://huxpbx5og7fr" path="res://assets/dungeon_tileset_ii/tileset_jonathan.png" id="1_c2psw"]
 [ext_resource type="Script" uid="uid://qshmgsy32km5" path="res://modules/enemy_sword/enemy_sword.gd" id="1_husqr"]
@@ -50,6 +50,24 @@ animations = [{
 radius = 8.0
 height = 24.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_71275"]
+atlas = ExtResource("1_c2psw")
+region = Rect2(304, 32, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aqdvb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71275")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pr3xh"]
+size = Vector2(8, 22)
+
 [node name="EnemySword" type="CharacterBody2D"]
 script = ExtResource("1_husqr")
 
@@ -60,3 +78,17 @@ animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_71275")
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Weapon" type="Area2D" parent="Pivot"]
+position = Vector2(0, -33)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot/Weapon"]
+sprite_frames = SubResource("SpriteFrames_aqdvb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Weapon"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_pr3xh")
+
+[node name="Timer" type="Timer" parent="Pivot/Weapon"]
