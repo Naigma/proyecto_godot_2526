@@ -20,5 +20,7 @@ func physics_update(_delta: float):
 	
 	enemy.move_and_slide()
 
-	if direction.length() > 50:
+	if direction.length() > 100:
 		transitioned.emit(self,"idle")
+	if direction.length() < 30:
+		transitioned.emit(self, "explode")

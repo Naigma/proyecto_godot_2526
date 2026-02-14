@@ -1,7 +1,7 @@
 extends State
 class_name EnemyKamiIdleState
 
-@export var enemy:CharacterBody2D
+@export var enemy : CharacterBody2D
 @export var move_speed := 10.0
 
 var player: CharacterBody2D

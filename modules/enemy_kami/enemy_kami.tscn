@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bnb65r4ewgdbb"]
+[gd_scene load_steps=16 format=3 uid="uid://bnb65r4ewgdbb"]
 
 [ext_resource type="Script" uid="uid://cxng575osttpi" path="res://modules/enemy_kami/enemy_kami.gd" id="1_r0bp3"]
 [ext_resource type="Texture2D" uid="uid://3m8ci0alobe1" path="res://assets/dungeon_tileset_ii/frames/big_demon_idle_anim_f0.png" id="2_ea3x1"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://4okd8uhdjjem" path="res://modules/FSM/fsm.gd" id="10_aivkm"]
 [ext_resource type="Script" uid="uid://dt2k3jb8a00nl" path="res://modules/enemy_kami/enmy_kami_follow_state.gd" id="11_xlkcu"]
 [ext_resource type="Script" uid="uid://pwy38bm2k1yw" path="res://modules/enemy_kami/enemy_kami_idle_state.gd" id="12_xlkcu"]
+[ext_resource type="Script" uid="uid://bkgg1m6gt4bvs" path="res://modules/enemy_kami/enemy_kami_explode_state.gd" id="13_eal45"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0t8f2"]
 animations = [{
@@ -60,7 +61,7 @@ script = ExtResource("1_r0bp3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0t8f2")
 animation = &"walk"
-frame_progress = 0.25354233
+frame_progress = 0.74432474
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)
@@ -71,12 +72,17 @@ script = ExtResource("10_aivkm")
 initial_state = NodePath("Idle")
 metadata/_custom_type_script = "uid://4okd8uhdjjem"
 
+[node name="Idle" type="Node" parent="FSM" node_paths=PackedStringArray("enemy")]
+script = ExtResource("12_xlkcu")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://pwy38bm2k1yw"
+
 [node name="Follow" type="Node" parent="FSM" node_paths=PackedStringArray("enemy")]
 script = ExtResource("11_xlkcu")
 enemy = NodePath("../..")
 metadata/_custom_type_script = "uid://dt2k3jb8a00nl"
 
-[node name="Idle" type="Node" parent="FSM" node_paths=PackedStringArray("enemy")]
-script = ExtResource("12_xlkcu")
+[node name="Explode" type="Node" parent="FSM" node_paths=PackedStringArray("enemy")]
+script = ExtResource("13_eal45")
 enemy = NodePath("../..")
-metadata/_custom_type_script = "uid://pwy38bm2k1yw"
+metadata/_custom_type_script = "uid://bkgg1m6gt4bvs"
