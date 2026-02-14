@@ -3,7 +3,8 @@ class_name EnemySword
 
 @export var health : int = 40
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
-@onready var damage_area: Area2D = $DamageArea
+@onready var weapon: Area2D = $Pivot/Weapon
+@onready var pivot: Node2D = $Pivot
 
 func _ready() -> void:
 	animator.play("walk")
@@ -22,3 +23,7 @@ func take_damage(damage : int):
 		queue_free()
 	await get_tree().create_timer(0.1).timeout
 	animator.modulate = Color.WHITE
+	
+func _physics_process(delta: float) -> void:
+	pivot.rotation += PI * delta
+	
