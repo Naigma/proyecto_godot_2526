@@ -44,7 +44,11 @@ func _process(delta: float) -> void:
 	
 func take_damage(damage):
 	health = health - damage
-	sprite_player.modulate = Color.INDIAN_RED
+	if damage > 0:
+		sprite_player.modulate = Color.INDIAN_RED
+	else:
+		sprite_player.modulate = Color.WEB_GREEN
+		
 	if health <= 0:
 		queue_free()
 		
