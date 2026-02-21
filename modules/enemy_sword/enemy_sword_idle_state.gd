@@ -3,6 +3,7 @@ class_name EnemySwordIdleState
 
 @export var enemy : CharacterBody2D
 @export var move_speed := 15.0
+@export var spot_range : float = 80.0
 
 var player : CharacterBody2D
 
@@ -18,3 +19,20 @@ func enter() :
 	randomize_wander()
 	#Aquí se esconde el "weapon". En el estado "follow" se tiene que mostrar.
 	enemy.weapon.hide()
+	
+func update(delta: float):
+	if wander_time > 0 :
+		wander_time -= delta
+	
+	else:
+		randomize_wander()
+		
+func physics_update(_delta: float):
+	if enemy:
+		enemy.velocity = move_direction * move_speed
+		enemy.move_and_slide()
+		
+	var direction = player.global_position - enemy.global_position
+	
+	if direction.length() < spot_range:
+		transitioned.emit(self, "follow")

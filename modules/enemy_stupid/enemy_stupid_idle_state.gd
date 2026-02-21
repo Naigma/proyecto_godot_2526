@@ -15,7 +15,7 @@ func randomize_wander():
 	
 func enter():
 	player = get_tree().get_first_node_in_group("player")
-	randomize_wander()
+	randomize_wander() 
 	
 func update(delta : float):
 	if wander_time > 0 :
