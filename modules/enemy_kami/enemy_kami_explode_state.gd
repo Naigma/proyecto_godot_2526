@@ -14,9 +14,13 @@ func enter():
 	enemy.modulate = Color.WHITE
 	
 func _explode():
+	enemy.explosion_color.show()
+	
 	var bodies = enemy.explosion_area.get_overlapping_bodies()
 	for body in bodies:
 		if body is Player:
 			body.take_damage(damage)
+	
+	await get_tree().create_timer(0.1).timeout
 	
 	enemy.queue_free()

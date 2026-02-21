@@ -52,8 +52,7 @@ pick_type = "heart"
 position = Vector2(551, 285)
 pick_type = "mid_heart"
 
-[node name="EnemyKami" parent="." instance=ExtResource("6_oqhi0")]
-position = Vector2(345, 173)
-
 [node name="EnemySword" parent="." instance=ExtResource("7_cq5yl")]
 position = Vector2(816, 456)
+
+[node name="EnemyKami" parent="." instance=ExtResource("6_oqhi0")]
