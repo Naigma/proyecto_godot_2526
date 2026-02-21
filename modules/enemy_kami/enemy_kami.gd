@@ -4,7 +4,8 @@ class_name EnemyKami
 @export var health : int = 30
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
 @onready var explosion_area: Area2D = $ExplosionArea
-@onready var explosion_color: ColorRect = $ExplosionColor
+@onready var explosion_color: Sprite2D = $ExplosionColor
+
 
 func _ready() -> void:
 	animator.play("idle")

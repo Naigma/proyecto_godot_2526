@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bnb65r4ewgdbb"]
+[gd_scene load_steps=18 format=3 uid="uid://bnb65r4ewgdbb"]
 
 [ext_resource type="Script" uid="uid://cxng575osttpi" path="res://modules/enemy_kami/enemy_kami.gd" id="1_r0bp3"]
 [ext_resource type="Texture2D" uid="uid://3m8ci0alobe1" path="res://assets/dungeon_tileset_ii/frames/big_demon_idle_anim_f0.png" id="2_ea3x1"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dt2k3jb8a00nl" path="res://modules/enemy_kami/enmy_kami_follow_state.gd" id="11_xlkcu"]
 [ext_resource type="Script" uid="uid://pwy38bm2k1yw" path="res://modules/enemy_kami/enemy_kami_idle_state.gd" id="12_xlkcu"]
 [ext_resource type="Script" uid="uid://bkgg1m6gt4bvs" path="res://modules/enemy_kami/enemy_kami_explode_state.gd" id="13_eal45"]
+[ext_resource type="Texture2D" uid="uid://bpqtil8alrko7" path="res://assets/dungeon_tileset_ii/frames/coin_anim_f0.png" id="14_swr8o"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0t8f2"]
 animations = [{
@@ -66,7 +67,6 @@ sprite_frames = SubResource("SpriteFrames_0t8f2")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 2)
 shape = SubResource("CapsuleShape2D_aivkm")
 
 [node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -94,10 +94,8 @@ metadata/_custom_type_script = "uid://bkgg1m6gt4bvs"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionArea"]
 shape = SubResource("CircleShape2D_eal45")
 
-[node name="ExplosionColor" type="ColorRect" parent="."]
+[node name="ExplosionColor" type="Sprite2D" parent="."]
 visible = false
-offset_left = -50.0
-offset_top = -51.0
-offset_right = 51.0
-offset_bottom = 51.0
-color = Color(0.99969536, 0.32538033, 0.14504026, 1)
+position = Vector2(1.4305115e-06, 1.4305115e-06)
+scale = Vector2(17, 15.142857)
+texture = ExtResource("14_swr8o")
