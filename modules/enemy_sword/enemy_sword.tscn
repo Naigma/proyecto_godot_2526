@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://ylarvawkus4a"]
+[gd_scene load_steps=17 format=3 uid="uid://ylarvawkus4a"]
 
 [ext_resource type="Texture2D" uid="uid://huxpbx5og7fr" path="res://assets/dungeon_tileset_ii/tileset_jonathan.png" id="1_c2psw"]
 [ext_resource type="Script" uid="uid://qshmgsy32km5" path="res://modules/enemy_sword/enemy_sword.gd" id="1_husqr"]
+[ext_resource type="Script" uid="uid://jbg6ga5nh530" path="res://modules/enemy_sword/weapon.gd" id="3_b4x83"]
 [ext_resource type="Script" uid="uid://4okd8uhdjjem" path="res://modules/FSM/fsm.gd" id="3_h1g16"]
 [ext_resource type="Script" uid="uid://djhgu1srp8835" path="res://modules/enemy_sword/enemy_sword_idle_state.gd" id="4_ixhi5"]
 [ext_resource type="Script" uid="uid://bl38iegjhtyy6" path="res://modules/enemy_sword/enemy_sword_follow_state.gd" id="5_ixhi5"]
@@ -86,6 +87,7 @@ shape = SubResource("CapsuleShape2D_71275")
 
 [node name="Weapon" type="Area2D" parent="Pivot"]
 position = Vector2(0, -33)
+script = ExtResource("3_b4x83")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot/Weapon"]
 sprite_frames = SubResource("SpriteFrames_aqdvb")
@@ -93,8 +95,6 @@ sprite_frames = SubResource("SpriteFrames_aqdvb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Weapon"]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_pr3xh")
-
-[node name="Timer" type="Timer" parent="Pivot/Weapon"]
 
 [node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_h1g16")
@@ -110,3 +110,5 @@ metadata/_custom_type_script = "uid://djhgu1srp8835"
 script = ExtResource("5_ixhi5")
 enemy = NodePath("../..")
 metadata/_custom_type_script = "uid://bl38iegjhtyy6"
+
+[connection signal="body_entered" from="Pivot/Weapon" to="Pivot/Weapon" method="_on_body_entered"]
