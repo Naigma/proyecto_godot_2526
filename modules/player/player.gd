@@ -43,7 +43,8 @@ func _process(delta: float) -> void:
 	weapon_pivot.look_at(mouse_position)
 	
 func take_damage(damage):
-	health = health - damage
+	health = clamp(health-damage,0,max_health)
+	
 	if damage > 0:
 		sprite_player.modulate = Color.INDIAN_RED
 	else:

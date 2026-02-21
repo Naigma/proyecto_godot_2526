@@ -25,6 +25,7 @@ npc_type = "wizard"
 
 [node name="Player" parent="." instance=ExtResource("2_3rof0")]
 position = Vector2(438, 235)
+max_health = 7
 
 [node name="EnemyStupid" parent="." instance=ExtResource("5_oqhi0")]
 position = Vector2(520, 248)
