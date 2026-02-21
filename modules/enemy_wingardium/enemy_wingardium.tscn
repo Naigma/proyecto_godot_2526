@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://cb7kjdp1egkdu"]
+
+[ext_resource type="Texture2D" uid="uid://bmly4ptbu5gw5" path="res://assets/dungeon_tileset_ii/frames/masked_orc_idle_anim_f0.png" id="2_4gytn"]
+[ext_resource type="Texture2D" uid="uid://dibfj6cfnwnxg" path="res://assets/dungeon_tileset_ii/frames/masked_orc_idle_anim_f1.png" id="3_id15q"]
+[ext_resource type="Texture2D" uid="uid://n1a42pyycnft" path="res://assets/dungeon_tileset_ii/frames/masked_orc_idle_anim_f2.png" id="4_ljqgy"]
+[ext_resource type="Texture2D" uid="uid://c7py4bbfgybvu" path="res://assets/dungeon_tileset_ii/frames/masked_orc_idle_anim_f3.png" id="5_dmbxm"]
+[ext_resource type="Texture2D" uid="uid://c2dumcwurqcan" path="res://assets/dungeon_tileset_ii/frames/masked_orc_run_anim_f0.png" id="6_pavv3"]
+[ext_resource type="Texture2D" uid="uid://c6nhkgnvcb6lx" path="res://assets/dungeon_tileset_ii/frames/masked_orc_run_anim_f1.png" id="7_tncrn"]
+[ext_resource type="Texture2D" uid="uid://cpdnpd81frliv" path="res://assets/dungeon_tileset_ii/frames/masked_orc_run_anim_f2.png" id="8_eeqcw"]
+[ext_resource type="Texture2D" uid="uid://b17e066qs373p" path="res://assets/dungeon_tileset_ii/frames/masked_orc_run_anim_f3.png" id="9_leok7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vsbg"]
+size = Vector2(12, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vy3pi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4gytn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_id15q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ljqgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dmbxm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_pavv3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_tncrn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_eeqcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_leok7")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="EnemyWingardium" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_0vsbg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vy3pi")
+animation = &"walk"
+frame_progress = 0.93999916
