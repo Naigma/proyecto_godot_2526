@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://dqpskonrnh6cg"]
+[gd_scene load_steps=15 format=3 uid="uid://dqpskonrnh6cg"]
 
 [ext_resource type="Script" uid="uid://ckmbsg3rp2py1" path="res://modules/player/player.gd" id="1_qgxqk"]
+[ext_resource type="PackedScene" uid="uid://buh0rud6aa21g" path="res://modules/player/player_bullet.tscn" id="2_55gox"]
 [ext_resource type="Texture2D" uid="uid://huxpbx5og7fr" path="res://assets/dungeon_tileset_ii/tileset_jonathan.png" id="2_qgxqk"]
 [ext_resource type="PackedScene" uid="uid://dpxis4d66dqem" path="res://modules/sword/sword.tscn" id="3_m7q0d"]
 
@@ -70,6 +71,7 @@ radius = 13.038404
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_qgxqk")
+bullet_scene = ExtResource("2_55gox")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)

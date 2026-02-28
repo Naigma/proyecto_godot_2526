@@ -1,11 +1,14 @@
 extends CharacterBody2D
 class_name Player
 
+@export var bullet_scene: PackedScene
+
 @onready var sprite_player: AnimatedSprite2D = $SpritePlayer
 @export var speed : float = 100.00
 @onready var interaction_area: Area2D = $InteractionArea
 @onready var weapon_pivot: Node2D = $WeaponPivot
 @export var max_health: int = 6
+
 var health = max_health
 
 func _ready() -> void:
@@ -22,6 +25,20 @@ func set_health_bar() -> void:
 		$HealthBar.modulate = Color.ORANGE
 	else:
 		$HealthBar.modulate = Color.RED
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_released("ui_accept"):
+		shoot()
+
+func shoot():
+	var instance = bullet_scene.instantiate() as PlayerBullet
+	
+	instance.direction = self.global_position.direction_to(get_global_mouse_position()).normalized()
+	instance.global_position = self.global_position
+	
+	# TODO: Eliminar get parent
+	get_parent().add_child(instance)
+
 
 func _physics_process(delta: float) -> void:
 	var direction : Vector2 = Input.get_vector("left","right","up","down").normalized()
