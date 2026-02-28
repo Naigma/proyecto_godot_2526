@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cb7kjdp1egkdu"]
+[gd_scene load_steps=14 format=3 uid="uid://cb7kjdp1egkdu"]
 
 [ext_resource type="Texture2D" uid="uid://bmly4ptbu5gw5" path="res://assets/dungeon_tileset_ii/frames/masked_orc_idle_anim_f0.png" id="2_4gytn"]
 [ext_resource type="Texture2D" uid="uid://dibfj6cfnwnxg" path="res://assets/dungeon_tileset_ii/frames/masked_orc_idle_anim_f1.png" id="3_id15q"]
@@ -7,12 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://c2dumcwurqcan" path="res://assets/dungeon_tileset_ii/frames/masked_orc_run_anim_f0.png" id="6_pavv3"]
 [ext_resource type="Texture2D" uid="uid://c6nhkgnvcb6lx" path="res://assets/dungeon_tileset_ii/frames/masked_orc_run_anim_f1.png" id="7_tncrn"]
 [ext_resource type="Texture2D" uid="uid://cpdnpd81frliv" path="res://assets/dungeon_tileset_ii/frames/masked_orc_run_anim_f2.png" id="8_eeqcw"]
+[ext_resource type="PackedScene" uid="uid://nsrck8jk81af" path="res://modules/FSM/FSM.tscn" id="9_4gytn"]
 [ext_resource type="Texture2D" uid="uid://b17e066qs373p" path="res://assets/dungeon_tileset_ii/frames/masked_orc_run_anim_f3.png" id="9_leok7"]
+[ext_resource type="Script" uid="uid://ddbbqcepbkhnl" path="res://modules/enemy_wingardium/enemy_wingardium_idle.gd" id="10_id15q"]
+[ext_resource type="Script" uid="uid://cp08jse0v0l76" path="res://modules/enemy_wingardium/enemy_wingardium_follow.gd" id="11_ljqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0vsbg"]
 size = Vector2(12, 18)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_vy3pi"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_4gytn"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -45,7 +48,7 @@ animations = [{
 "texture": ExtResource("9_leok7")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"run",
 "speed": 5.0
 }]
 
@@ -56,6 +59,19 @@ position = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_0vsbg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_vy3pi")
-animation = &"walk"
-frame_progress = 0.93999916
+sprite_frames = SubResource("SpriteFrames_4gytn")
+animation = &"run"
+frame_progress = 0.504321
+
+[node name="FSM" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("9_4gytn")]
+initial_state = NodePath("Idle")
+
+[node name="Follow" type="Node" parent="FSM" node_paths=PackedStringArray("enemy")]
+script = ExtResource("11_ljqgy")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://cp08jse0v0l76"
+
+[node name="Idle" type="Node" parent="FSM" node_paths=PackedStringArray("enemy")]
+script = ExtResource("10_id15q")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://ddbbqcepbkhnl"

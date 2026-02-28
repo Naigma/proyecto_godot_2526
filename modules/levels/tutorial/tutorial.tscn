@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://qs8d6amfty5y"]
+[gd_scene load_steps=9 format=4 uid="uid://qs8d6amfty5y"]
 
 [ext_resource type="TileSet" uid="uid://btkypbfva5y1w" path="res://modules/levels/dungeon_tileset.tres" id="1_tgt3j"]
 [ext_resource type="PackedScene" uid="uid://dqpskonrnh6cg" path="res://modules/player/player.tscn" id="2_3rof0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ccfy6fv8o6y8r" path="res://modules/enemy_stupid/enemy_stupid.tscn" id="5_oqhi0"]
 [ext_resource type="PackedScene" uid="uid://bnb65r4ewgdbb" path="res://modules/enemy_kami/enemy_kami.tscn" id="6_oqhi0"]
 [ext_resource type="PackedScene" uid="uid://ylarvawkus4a" path="res://modules/enemy_sword/enemy_sword.tscn" id="7_cq5yl"]
+[ext_resource type="PackedScene" uid="uid://cb7kjdp1egkdu" path="res://modules/enemy_wingardium/enemy_wingardium.tscn" id="8_xgc6r"]
 
 [node name="Tutorial" type="Node2D"]
 
@@ -58,3 +59,6 @@ position = Vector2(816, 456)
 
 [node name="EnemyKami" parent="." instance=ExtResource("6_oqhi0")]
 position = Vector2(758, 169)
+
+[node name="EnemyWingardium" parent="." instance=ExtResource("8_xgc6r")]
+position = Vector2(530, 110)
