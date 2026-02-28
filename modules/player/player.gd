@@ -19,10 +19,6 @@ func set_health_label() -> void:
 func set_health_bar() -> void:
 	$HealthBar.value = health
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		take_damage(1)
-
 func _physics_process(delta: float) -> void:
 	var direction : Vector2 = Input.get_vector("left","right","up","down").normalized()
 	self.velocity = direction * speed
