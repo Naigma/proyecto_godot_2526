@@ -51,7 +51,7 @@ func take_damage(damage):
 		sprite_player.modulate = Color.WEB_GREEN
 		
 	if health <= 0:
-		queue_free()
+		hide()
 		
 	set_health_label()
 	set_health_bar()
