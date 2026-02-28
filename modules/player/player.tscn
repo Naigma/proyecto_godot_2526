@@ -96,16 +96,9 @@ position = Vector2(23, 0)
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = -25.0
-offset_top = -36.0
+offset_top = -25.0
 offset_right = 25.0
-offset_bottom = -9.0
+offset_bottom = -17.0
 max_value = 5.0
 step = 1.0
 show_percentage = false
-
-[node name="HealthLabel" type="Label" parent="."]
-offset_left = -25.0
-offset_top = -62.0
-offset_right = 27.0
-offset_bottom = -39.0
-text = "Health :"
