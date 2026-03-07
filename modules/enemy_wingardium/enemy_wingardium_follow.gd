@@ -1,8 +1,8 @@
 extends State
 class_name EnemyWingardiumFollowState
 
-@export var enemy: CharacterBody2D
 @export var move_speed := 40.0
+@export var enemy: CharacterBody2D
 var player: CharacterBody2D
 
 func enter():
@@ -12,15 +12,15 @@ func enter():
 func physics_update(_delta: float):
 	var direction = player.global_position - enemy.global_position
 	
-	if direction.length() > 130:
+	if direction.length() > 110:
 		enemy.velocity = direction.normalized() * move_speed
+	elif direction.length() > 75:
+		enemy.velocity = direction.normalized() * -move_speed
 	else:
 		enemy.velocity = Vector2.ZERO
 	
 	enemy.move_and_slide()
 
-	if direction.length() > 180:
+	if direction.length() > 170:
 		transitioned.emit(self,"idle")
-
-	if direction.length() > 100:
-		pass
+		
