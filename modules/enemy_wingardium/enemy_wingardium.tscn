@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cb7kjdp1egkdu"]
+[gd_scene load_steps=15 format=3 uid="uid://cb7kjdp1egkdu"]
 
 [ext_resource type="Texture2D" uid="uid://bmly4ptbu5gw5" path="res://assets/dungeon_tileset_ii/frames/masked_orc_idle_anim_f0.png" id="2_4gytn"]
 [ext_resource type="Texture2D" uid="uid://dibfj6cfnwnxg" path="res://assets/dungeon_tileset_ii/frames/masked_orc_idle_anim_f1.png" id="3_id15q"]
@@ -10,10 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://nsrck8jk81af" path="res://modules/FSM/FSM.tscn" id="9_4gytn"]
 [ext_resource type="Texture2D" uid="uid://b17e066qs373p" path="res://assets/dungeon_tileset_ii/frames/masked_orc_run_anim_f3.png" id="9_leok7"]
 [ext_resource type="Script" uid="uid://ddbbqcepbkhnl" path="res://modules/enemy_wingardium/enemy_wingardium_idle.gd" id="10_id15q"]
+[ext_resource type="PackedScene" uid="uid://bg1m54whoscje" path="res://modules/bullet/bullet.tscn" id="11_id15q"]
 [ext_resource type="Script" uid="uid://cp08jse0v0l76" path="res://modules/enemy_wingardium/enemy_wingardium_follow.gd" id="11_ljqgy"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vsbg"]
-size = Vector2(12, 18)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4gytn"]
 animations = [{
@@ -52,26 +50,34 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="EnemyWingardium" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vsbg"]
+size = Vector2(10, 14)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 2)
-shape = SubResource("RectangleShape2D_0vsbg")
+[node name="EnemyWingardium" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4gytn")
 animation = &"run"
 frame_progress = 0.504321
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_0vsbg")
+
 [node name="FSM" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("9_4gytn")]
 initial_state = NodePath("Idle")
 
 [node name="Follow" type="Node" parent="FSM" node_paths=PackedStringArray("enemy")]
 script = ExtResource("11_ljqgy")
+bullet_scene = ExtResource("11_id15q")
 enemy = NodePath("../..")
 metadata/_custom_type_script = "uid://cp08jse0v0l76"
+
+[node name="ShootTimer" type="Timer" parent="FSM/Follow"]
 
 [node name="Idle" type="Node" parent="FSM" node_paths=PackedStringArray("enemy")]
 script = ExtResource("10_id15q")
 enemy = NodePath("../..")
 metadata/_custom_type_script = "uid://ddbbqcepbkhnl"
+
+[connection signal="timeout" from="FSM/Follow/ShootTimer" to="FSM/Follow" method="shoot"]

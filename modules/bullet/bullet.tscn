@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg1m54whoscje"]
+
+[ext_resource type="Script" uid="uid://doxd3ltktuvqa" path="res://modules/bullet/bullet.gd" id="1_ihq3b"]
+[ext_resource type="Texture2D" uid="uid://bq2572wcd4bnf" path="res://assets/dungeon_tileset_ii/frames/weapon_arrow.png" id="2_h5j48"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_damsx"]
+radius = 3.0
+height = 14.0
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_ihq3b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1.1920929e-07)
+rotation = 1.5707964
+scale = Vector2(1.1428572, 0.5714286)
+texture = ExtResource("2_h5j48")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_damsx")
