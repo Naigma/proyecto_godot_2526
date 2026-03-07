@@ -16,6 +16,10 @@ func physics_update(_delta: float):
 		enemy.velocity = direction.normalized() * move_speed
 	elif direction.length() > 75:
 		enemy.velocity = direction.normalized() * -move_speed
+	elif direction.length() > 30:
+		enemy.velocity = direction.normalized() * -move_speed
+	elif direction.length() > 10:
+		enemy.velocity = direction.normalized() * -move_speed
 	else:
 		enemy.velocity = Vector2.ZERO
 	
