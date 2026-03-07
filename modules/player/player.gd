@@ -8,8 +8,10 @@ class_name Player
 @onready var interaction_area: Area2D = $InteractionArea
 @onready var weapon_pivot: Node2D = $WeaponPivot
 @export var max_health: int = 6
+@export var firerate : float = 1.0
 
-var health = max_health
+var health: int = max_health
+var can_shoot: bool = true
 
 func _ready() -> void:
 	$HealthBar.max_value=max_health
@@ -31,6 +33,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		shoot()
 
 func shoot():
+	if not can_shoot:
+		return
+	
+	can_shoot = false
+	
 	var instance = bullet_scene.instantiate() as PlayerBullet
 	
 	instance.direction = self.global_position.direction_to(get_global_mouse_position()).normalized()
@@ -38,7 +45,10 @@ func shoot():
 	
 	# TODO: Eliminar get parent
 	get_parent().add_child(instance)
-
+	
+	await get_tree().create_timer(firerate).timeout
+	
+	can_shoot = true
 
 func _physics_process(delta: float) -> void:
 	var direction : Vector2 = Input.get_vector("left","right","up","down").normalized()
