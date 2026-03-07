@@ -3,6 +3,7 @@ class_name EnemyKamiIdleState
 
 @export var enemy : CharacterBody2D
 @export var move_speed := 10.0
+@export var follow_range : float = 100
 
 var player: CharacterBody2D
 
@@ -31,5 +32,5 @@ func physics_update(_delta: float):
 		
 	var direction = player.global_position - enemy.global_position
 	
-	if direction.length() < 80:
+	if direction.length() < follow_range:
 		transitioned.emit(self, "follow")

@@ -42,6 +42,7 @@ func shoot():
 	
 	instance.direction = self.global_position.direction_to(get_global_mouse_position()).normalized()
 	instance.global_position = self.global_position
+	#instance.speed = 100
 	
 	# TODO: Eliminar get parent
 	get_parent().add_child(instance)

@@ -53,8 +53,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aivkm"]
-radius = 12.0
-height = 32.0
+radius = 8.0
+height = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eal45"]
 radius = 52.153618
@@ -67,6 +67,7 @@ sprite_frames = SubResource("SpriteFrames_0t8f2")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_aivkm")
 
 [node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -96,6 +97,7 @@ shape = SubResource("CircleShape2D_eal45")
 
 [node name="ExplosionColor" type="Sprite2D" parent="."]
 visible = false
+modulate = Color(0.59607846, 0.16862746, 0.21568628, 1)
 position = Vector2(1.4305115e-06, 1.4305115e-06)
 scale = Vector2(17, 15.142857)
 texture = ExtResource("14_swr8o")

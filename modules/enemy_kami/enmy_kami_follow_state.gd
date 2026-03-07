@@ -3,6 +3,8 @@ class_name EnemyKamiFollowState
 
 @export var enemy: CharacterBody2D
 @export var move_speed := 40.0
+@export var idle_range : float = 120
+@export var explode_range : float = 30
 
 var player: CharacterBody2D
 
@@ -20,7 +22,7 @@ func physics_update(_delta: float):
 	
 	enemy.move_and_slide()
 
-	if direction.length() > 100:
+	if direction.length() > idle_range:
 		transitioned.emit(self,"idle")
-	if direction.length() < 30:
+	if direction.length() < explode_range:
 		transitioned.emit(self, "explode")
