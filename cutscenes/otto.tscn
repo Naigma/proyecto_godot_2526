@@ -1,3 +1,237 @@
-[gd_scene format=3 uid="uid://dtl40kw3eg8qd"]
+[gd_scene load_steps=7 format=3 uid="uid://dtl40kw3eg8qd"]
+
+[ext_resource type="Texture2D" uid="uid://huxpbx5og7fr" path="res://assets/dungeon_tileset_ii/tileset_jonathan.png" id="1_nqwsb"]
+[ext_resource type="Script" uid="uid://4ta4q7vysho5" path="res://cutscenes/mago_sprite.gd" id="2_0fh3f"]
+[ext_resource type="Texture2D" uid="uid://21ufldph6v0t" path="res://icon.svg" id="2_sgb2y"]
+
+[sub_resource type="Animation" id="Animation_sgb2y"]
+resource_name = "scene"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MagoSprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Rect2(240, 160, 16, 32), Rect2(240, 224, 16, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MagoSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.0355265, 4.9975133),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 6.2831855]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MagoSprite/Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3, 4.9975133),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["
+", "aaaa
+", "Lagartotransformación
+"]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:zoom:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0),
+"points": PackedFloat32Array(1, 0, 0, 2.8, 134.5, 22.5, -1.4666667, -48, 2.9000006, 129, 29.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 5.7, 10.633333)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera2D:zoom:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(2, 2, 0),
+"points": PackedFloat32Array(1, 0, 0, 2.7333333, 136.5, 23.5, -1.2048826, -53.79941, 2.8666668, 128, 30.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 5.7, 10.633333)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GodotPerson:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.7028563, 3.47975, 5.682358, 6.2191277, 7.588816, 8.754903, 11.3832245, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.92156863, 0.8627451, 1), Color(0, 1, 0.3882353, 1), Color(1, 1, 0, 1), Color(0, 1, 1, 1), Color(0.8836837, 0.39642814, 3.85046e-07, 1), Color(1, 0, 1, 1), Color(0.83137256, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MagoSprite")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(5.0333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"test"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_0fh3f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MagoSprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(240, 160, 16, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MagoSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MagoSprite/Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["
+"]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:zoom:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(30, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera2D:zoom:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(30, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GodotPerson:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e7cdd"]
+_data = {
+&"RESET": SubResource("Animation_0fh3f"),
+&"scene": SubResource("Animation_sgb2y")
+}
 
 [node name="Otto" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -744.0
+offset_top = -432.0
+offset_right = 720.0
+offset_bottom = 416.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_e7cdd")
+}
+autoplay = "scene"
+
+[node name="MagoSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_nqwsb")
+region_enabled = true
+region_rect = Rect2(240, 160, 16, 32)
+script = ExtResource("2_0fh3f")
+
+[node name="Label" type="Label" parent="MagoSprite"]
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 24.0
+offset_bottom = 17.0
+size_flags_vertical = 0
+text = "
+"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(30, 30)
+
+[node name="GodotPerson" type="Sprite2D" parent="."]
+position = Vector2(16.000008, 7.9999924)
+scale = Vector2(0.062499996, 0.062499996)
+texture = ExtResource("2_sgb2y")
