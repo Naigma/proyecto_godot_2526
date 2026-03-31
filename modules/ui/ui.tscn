@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhir2wiwxxo3k"]
+
+[ext_resource type="Script" uid="uid://b342fn0cyh4t4" path="res://modules/ui/ui.gd" id="1_fbikm"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_fbikm")
+
+[node name="CoinsLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "coins: 0"
+metadata/_edit_use_anchors_ = true
