@@ -173,6 +173,6 @@ shape = SubResource("CircleShape2D_71qa1")
 position = Vector2(4.7683716e-07, 4.7683716e-07)
 scale = Vector2(0.75000006, 0.75000006)
 sprite_frames = SubResource("SpriteFrames_mqp8s")
-animation = &"heart"
+animation = &"coin"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

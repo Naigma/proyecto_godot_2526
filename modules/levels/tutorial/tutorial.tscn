@@ -54,6 +54,18 @@ pick_type = "heart"
 position = Vector2(551, 285)
 pick_type = "mid_heart"
 
+[node name="PickUp3" parent="." instance=ExtResource("5_n2eix")]
+position = Vector2(425, 445)
+pick_type = "coin"
+
+[node name="PickUp4" parent="." instance=ExtResource("5_n2eix")]
+position = Vector2(323, 361)
+pick_type = "coin"
+
+[node name="PickUp5" parent="." instance=ExtResource("5_n2eix")]
+position = Vector2(340, 440)
+pick_type = "coin"
+
 [node name="EnemySword" parent="." instance=ExtResource("7_cq5yl")]
 position = Vector2(816, 456)
 

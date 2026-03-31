@@ -10,7 +10,6 @@ var player: CharacterBody2D
 
 func enter():
 	player = get_tree().get_first_node_in_group("player")
-	print(player)
 
 func physics_update(_delta: float):
 	var direction = player.global_position - enemy.global_position
