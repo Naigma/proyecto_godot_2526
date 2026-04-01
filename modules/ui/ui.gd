@@ -5,8 +5,8 @@ class_name UI
 @onready var eggs_label: Label = $EggsLabel
 
 func _ready() -> void:
-	Eggs.eggs_updated.connect(update_egg_label)
-	update_egg_label(Eggs.eggs)
+	Currency.eggs_updated.connect(update_egg_label)
+	update_egg_label(Currency.eggs)
 	Currency.coins_updated.connect(update_coin_label)
 	update_coin_label(Currency.coins)
 	

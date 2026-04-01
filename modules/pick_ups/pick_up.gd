@@ -13,4 +13,6 @@ func _on_body_entered(body: Node2D) -> void:
 			body.take_damage(-1)
 		if pick_type == "coin":
 			Currency.increment_coins(1)
+		if pick_type == "egg":
+			Currency.increment_eggs(1)
 		queue_free()

@@ -17,7 +17,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Currency="*res://modules/currency/currency.gd"
-Eggs="*res://modules/eggs/eggs.gd"
 
 [global_group]
 
