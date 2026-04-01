@@ -33,10 +33,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		shoot()
 
 func shoot():
+	if not Currency.eggs > 0:
+		return
+	
 	if not can_shoot:
 		return
 	
 	can_shoot = false
+	
+	Currency.increment_eggs(-1)
 	
 	var instance = bullet_scene.instantiate() as PlayerBullet
 	
@@ -45,6 +50,7 @@ func shoot():
 	#instance.speed = 100
 	
 	# TODO: Eliminar get parent
+	
 	get_parent().add_child(instance)
 	
 	await get_tree().create_timer(firerate).timeout

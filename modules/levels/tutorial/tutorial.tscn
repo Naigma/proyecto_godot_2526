@@ -71,6 +71,18 @@ pick_type = "coin"
 position = Vector2(661, 381)
 pick_type = "egg"
 
+[node name="PickUp7" parent="." instance=ExtResource("5_n2eix")]
+position = Vector2(559, 458)
+pick_type = "egg"
+
+[node name="PickUp8" parent="." instance=ExtResource("5_n2eix")]
+position = Vector2(387, 164)
+pick_type = "egg"
+
+[node name="PickUp9" parent="." instance=ExtResource("5_n2eix")]
+position = Vector2(491, 358)
+pick_type = "egg"
+
 [node name="EnemySword" parent="." instance=ExtResource("7_cq5yl")]
 position = Vector2(816, 456)
 
