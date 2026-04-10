@@ -3,6 +3,7 @@ class_name EnemyWingardium
 
 @export var health : int = 20
 @onready var enemy_wingardium: CharacterBody2D = $"."
+
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
 
 
