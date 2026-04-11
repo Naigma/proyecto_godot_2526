@@ -48,39 +48,41 @@ position = Vector2(104, 447)
 dialogue = "la vida se recoge con los corazones y si te quedas sin mueres"
 npc_type = "dinosaur"
 
-[node name="PickUp" parent="." instance=ExtResource("5_n2eix")]
+[node name="Pickups" type="Node2D" parent="."]
+
+[node name="PickUp" parent="Pickups" instance=ExtResource("5_n2eix")]
 position = Vector2(623, 213)
 pick_type = "heart"
 
-[node name="PickUp2" parent="." instance=ExtResource("5_n2eix")]
+[node name="PickUp2" parent="Pickups" instance=ExtResource("5_n2eix")]
 position = Vector2(551, 285)
 pick_type = "mid_heart"
 
-[node name="PickUp3" parent="." instance=ExtResource("5_n2eix")]
+[node name="PickUp3" parent="Pickups" instance=ExtResource("5_n2eix")]
 position = Vector2(425, 445)
 pick_type = "coin"
 
-[node name="PickUp4" parent="." instance=ExtResource("5_n2eix")]
+[node name="PickUp4" parent="Pickups" instance=ExtResource("5_n2eix")]
 position = Vector2(323, 361)
 pick_type = "coin"
 
-[node name="PickUp5" parent="." instance=ExtResource("5_n2eix")]
+[node name="PickUp5" parent="Pickups" instance=ExtResource("5_n2eix")]
 position = Vector2(340, 440)
 pick_type = "coin"
 
-[node name="PickUp6" parent="." instance=ExtResource("5_n2eix")]
+[node name="PickUp6" parent="Pickups" instance=ExtResource("5_n2eix")]
 position = Vector2(661, 381)
 pick_type = "egg"
 
-[node name="PickUp7" parent="." instance=ExtResource("5_n2eix")]
+[node name="PickUp7" parent="Pickups" instance=ExtResource("5_n2eix")]
 position = Vector2(559, 458)
 pick_type = "egg"
 
-[node name="PickUp8" parent="." instance=ExtResource("5_n2eix")]
+[node name="PickUp8" parent="Pickups" instance=ExtResource("5_n2eix")]
 position = Vector2(387, 164)
 pick_type = "egg"
 
-[node name="PickUp9" parent="." instance=ExtResource("5_n2eix")]
+[node name="PickUp9" parent="Pickups" instance=ExtResource("5_n2eix")]
 position = Vector2(491, 358)
 pick_type = "egg"
 
@@ -97,3 +99,16 @@ position = Vector2(278, 138)
 
 [node name="Breakable" parent="." instance=ExtResource("10_x0qc4")]
 position = Vector2(1064, 88)
+pick_up_type = "coin"
+
+[node name="Breakable2" parent="." instance=ExtResource("10_x0qc4")]
+position = Vector2(168, 96)
+pick_up_type = "egg"
+
+[node name="Breakable3" parent="." instance=ExtResource("10_x0qc4")]
+position = Vector2(192, 520)
+pick_up_type = "heart"
+
+[node name="Breakable4" parent="." instance=ExtResource("10_x0qc4")]
+position = Vector2(952, 264)
+pick_up_type = "heart"
