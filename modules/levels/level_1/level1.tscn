@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=4 uid="uid://717uvd3c5kuo"]
+
+[ext_resource type="TileSet" uid="uid://c00rfo6hvshyu" path="res://modules/levels/main_tileset.tres" id="1_o35ax"]
+[ext_resource type="PackedScene" uid="uid://dqpskonrnh6cg" path="res://modules/player/player.tscn" id="2_bmw4s"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAP3/AAAAABgAAAAAAP7/AAAAABkAAAAAAP//AAAAABoAAAABAP3/AAABABgAAAABAP7/AAABABkAAAABAP//AAABABoAAAACAP3/AAABABgAAAACAP7/AAABABkAAAACAP//AAABABoAAAADAP3/AAABABgAAAADAP7/AAABABkAAAADAP//AAABABoAAAAEAP3/AAABABgAAAAEAP7/AAABABkAAAAEAP//AAABABoAAAAFAP3/AAABABgAAAAFAP7/AAABABkAAAAFAP//AAABABoAAAAGAP3/AAABABgAAAAGAP7/AAABABkAAAAGAP//AAABABoAAAAHAP3/AAABABgAAAAHAP7/AAABABkAAAAHAP//AAABABoAAAAIAP3/AAACABgAAAAIAP7/AAACABkAAAAIAP//AAACABoAAAA=")
+tile_set = ExtResource("1_o35ax")
+
+[node name="Player" parent="." instance=ExtResource("2_bmw4s")]

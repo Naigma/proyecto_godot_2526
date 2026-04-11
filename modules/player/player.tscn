@@ -63,8 +63,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qgxqk"]
-radius = 7.0
-height = 24.0
+radius = 6.0
+height = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qgxqk"]
 radius = 13.038404
@@ -81,7 +81,7 @@ sprite_frames = SubResource("SpriteFrames_vwok7")
 animation = &"walk"
 
 [node name="CollisionShapePlayer" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 5)
+position = Vector2(-1, 8)
 shape = SubResource("CapsuleShape2D_qgxqk")
 
 [node name="InteractionArea" type="Area2D" parent="."]
