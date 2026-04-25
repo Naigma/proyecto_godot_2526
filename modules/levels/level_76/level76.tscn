@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://dyphuayq0com3"]
+[gd_scene load_steps=10 format=4 uid="uid://dyphuayq0com3"]
 
 [ext_resource type="TileSet" uid="uid://c00rfo6hvshyu" path="res://modules/levels/main_tileset.tres" id="1_pq20j"]
 [ext_resource type="PackedScene" uid="uid://dqpskonrnh6cg" path="res://modules/player/player.tscn" id="2_o7s37"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bnb65r4ewgdbb" path="res://modules/enemy_kami/enemy_kami.tscn" id="6_k4hej"]
 [ext_resource type="PackedScene" uid="uid://cb7kjdp1egkdu" path="res://modules/enemy_wingardium/enemy_wingardium.tscn" id="7_ey4oe"]
 [ext_resource type="PackedScene" uid="uid://ccfy6fv8o6y8r" path="res://modules/enemy_stupid/enemy_stupid.tscn" id="8_gj0uq"]
+[ext_resource type="PackedScene" uid="uid://bhir2wiwxxo3k" path="res://modules/ui/ui.tscn" id="9_pxknc"]
 
 [node name="Level76" type="Node2D"]
 
@@ -66,4 +67,42 @@ position = Vector2(1016, 288)
 position = Vector2(856, -56)
 
 [node name="EnemyWingardium3" parent="enemies" instance=ExtResource("7_ey4oe")]
-position = Vector2(1024, -568)
+position = Vector2(1264, -520)
+
+[node name="EnemySword3" parent="enemies" instance=ExtResource("5_pxknc")]
+position = Vector2(1168, -264)
+
+[node name="EnemyStupid2" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1016, 304)
+
+[node name="EnemyStupid3" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1032, 320)
+
+[node name="EnemyStupid4" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1056, 320)
+
+[node name="EnemyStupid5" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1080, 312)
+
+[node name="EnemyStupid6" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1080, 288)
+
+[node name="EnemyStupid7" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1096, 296)
+
+[node name="EnemyStupid8" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1096, 312)
+
+[node name="EnemyStupid9" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1112, 288)
+
+[node name="EnemyStupid10" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1112, 304)
+
+[node name="EnemyStupid11" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1096, 280)
+
+[node name="EnemyStupid12" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1080, 272)
+
+[node name="UI" parent="." instance=ExtResource("9_pxknc")]
