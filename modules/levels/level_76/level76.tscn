@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=4 uid="uid://dyphuayq0com3"]
+[gd_scene load_steps=10 format=4 uid="uid://dyphuayq0com3"]
 
 [ext_resource type="TileSet" uid="uid://c00rfo6hvshyu" path="res://modules/levels/main_tileset.tres" id="1_pq20j"]
 [ext_resource type="PackedScene" uid="uid://dqpskonrnh6cg" path="res://modules/player/player.tscn" id="2_o7s37"]
 [ext_resource type="Texture2D" uid="uid://1kfbutyrtqw1" path="res://assets/bizarre_kraken.jpg" id="3_o7s37"]
+[ext_resource type="PackedScene" uid="uid://jd8qicwni0tu" path="res://modules/pick_ups/pick_up.tscn" id="4_ext7d"]
+[ext_resource type="PackedScene" uid="uid://ylarvawkus4a" path="res://modules/enemy_sword/enemy_sword.tscn" id="5_pxknc"]
+[ext_resource type="PackedScene" uid="uid://bnb65r4ewgdbb" path="res://modules/enemy_kami/enemy_kami.tscn" id="6_k4hej"]
+[ext_resource type="PackedScene" uid="uid://cb7kjdp1egkdu" path="res://modules/enemy_wingardium/enemy_wingardium.tscn" id="7_ey4oe"]
+[ext_resource type="PackedScene" uid="uid://ccfy6fv8o6y8r" path="res://modules/enemy_stupid/enemy_stupid.tscn" id="8_gj0uq"]
+[ext_resource type="PackedScene" uid="uid://bhir2wiwxxo3k" path="res://modules/ui/ui.tscn" id="9_pxknc"]
 
 [node name="Level76" type="Node2D"]
 
@@ -21,3 +27,82 @@ tile_set = ExtResource("1_pq20j")
 position = Vector2(1560, 256)
 scale = Vector2(0.95666707, 0.35876134)
 texture = ExtResource("3_o7s37")
+
+[node name="PickUps" type="Node2D" parent="."]
+
+[node name="PickUp" parent="PickUps" instance=ExtResource("4_ext7d")]
+position = Vector2(88, 8)
+pick_type = "egg"
+
+[node name="PickUp2" parent="PickUps" instance=ExtResource("4_ext7d")]
+position = Vector2(1000, -216)
+pick_type = "egg"
+
+[node name="PickUp3" parent="PickUps" instance=ExtResource("4_ext7d")]
+position = Vector2(1080, 304)
+pick_type = "coin"
+
+[node name="PickUp4" parent="PickUps" instance=ExtResource("4_ext7d")]
+position = Vector2(360, -328)
+pick_type = "coin"
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="EnemySword" parent="enemies" instance=ExtResource("5_pxknc")]
+position = Vector2(408, -352)
+
+[node name="EnemyKami" parent="enemies" instance=ExtResource("6_k4hej")]
+position = Vector2(992, -280)
+
+[node name="EnemyWingardium" parent="enemies" instance=ExtResource("7_ey4oe")]
+position = Vector2(440, 40)
+
+[node name="EnemySword2" parent="enemies" instance=ExtResource("5_pxknc")]
+position = Vector2(400, -64)
+
+[node name="EnemyStupid" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1016, 288)
+
+[node name="EnemyWingardium2" parent="enemies" instance=ExtResource("7_ey4oe")]
+position = Vector2(856, -56)
+
+[node name="EnemyWingardium3" parent="enemies" instance=ExtResource("7_ey4oe")]
+position = Vector2(1264, -520)
+
+[node name="EnemySword3" parent="enemies" instance=ExtResource("5_pxknc")]
+position = Vector2(1168, -264)
+
+[node name="EnemyStupid2" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1016, 304)
+
+[node name="EnemyStupid3" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1032, 320)
+
+[node name="EnemyStupid4" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1056, 320)
+
+[node name="EnemyStupid5" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1080, 312)
+
+[node name="EnemyStupid6" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1080, 288)
+
+[node name="EnemyStupid7" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1096, 296)
+
+[node name="EnemyStupid8" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1096, 312)
+
+[node name="EnemyStupid9" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1112, 288)
+
+[node name="EnemyStupid10" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1112, 304)
+
+[node name="EnemyStupid11" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1096, 280)
+
+[node name="EnemyStupid12" parent="enemies" instance=ExtResource("8_gj0uq")]
+position = Vector2(1080, 272)
+
+[node name="UI" parent="." instance=ExtResource("9_pxknc")]

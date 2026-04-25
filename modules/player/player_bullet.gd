@@ -1,7 +1,7 @@
 extends Area2D
 class_name PlayerBullet
 
-@export var damage : int = 3
+@export var damage : int = 20
 @export var speed : float = 400
 var direction : Vector2 = Vector2.ZERO
 @export var decay_time : float = 1
