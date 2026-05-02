@@ -33,5 +33,5 @@ libraries = {
 
 [node name="NPC" parent="." instance=ExtResource("3_rl1q2")]
 position = Vector2(347, 195)
-dialogue = "aloh yos nu oiruasonid euq ebirces sadot sal sarbalap led sever orep nis raibmac le nedro ne le euq es eel :D"
+dialogue = "arroz com desgraça cosmica"
 npc_type = "friendly"
