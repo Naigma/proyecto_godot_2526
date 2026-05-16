@@ -11,12 +11,19 @@ config_version=5
 [application]
 
 config/name="Zelda Pluscuamperfecto"
+run/main_scene="uid://717uvd3c5kuo"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Currency="*res://modules/currency/currency.gd"
+BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
+BeehaveGlobalDebugger="*res://addons/beehave/debug/global_debugger.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/beehave/plugin.cfg")
 
 [global_group]
 

@@ -4,7 +4,7 @@ signal coins_updated(coins : int)
 signal eggs_updated(eggs : int)
 
 var coins : int = 0
-var eggs : int = 0
+var eggs : int = 30
 
 func increment_coins(amount : int):
 	coins += amount
