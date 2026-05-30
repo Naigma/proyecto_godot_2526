@@ -14,9 +14,8 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 	return SUCCESS
 
 func shoot(actor: Node):
-	var instance = bullet_scene.instantiate() as Bullet
+	var instance = bullet_scene.instantiate() as BossBullet
 	
-	instance.speed = 600
 	instance.direction = actor.global_position.direction_to(player.global_position).normalized()
 	instance.global_position = actor.global_position
 	instance.look_at(player.global_position)
