@@ -1,16 +1,18 @@
-[gd_scene load_steps=18 format=3 uid="uid://efldpoespk1r"]
+[gd_scene load_steps=20 format=3 uid="uid://efldpoespk1r"]
 
 [ext_resource type="Texture2D" uid="uid://huxpbx5og7fr" path="res://assets/dungeon_tileset_ii/tileset_jonathan.png" id="1_gfn0u"]
 [ext_resource type="Script" uid="uid://kru2i2q1lt6g" path="res://modules/enemy_boss/enemy_boss.gd" id="1_gkl0h"]
 [ext_resource type="Script" uid="uid://bb0t2ovl7wifo" path="res://addons/beehave/nodes/beehave_tree.gd" id="3_n1hlf"]
 [ext_resource type="Script" uid="uid://8hn4kne15ac5" path="res://addons/beehave/nodes/composites/selector.gd" id="4_n6bpc"]
 [ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="5_hoo2s"]
-[ext_resource type="Script" uid="uid://crkjak4kyv56m" path="res://addons/beehave/nodes/decorators/inverter.gd" id="6_hdece"]
 [ext_resource type="Script" uid="uid://kewglegnb2p5" path="res://modules/enemy_boss/is_health_above.gd" id="6_hoo2s"]
 [ext_resource type="Script" uid="uid://c6ctnlrvgeh2b" path="res://modules/enemy_boss/get_target_behind_player.gd" id="7_h5koh"]
 [ext_resource type="Script" uid="uid://dwh4u5i30nxs2" path="res://modules/enemy_boss/lunge.gd" id="8_qfsg4"]
 [ext_resource type="Script" uid="uid://dvnmhlldp23hg" path="res://addons/beehave/nodes/composites/selector_random.gd" id="8_r53g7"]
 [ext_resource type="Script" uid="uid://bnb2c06andnh6" path="res://modules/enemy_boss/attack_cooldown.gd" id="8_wwyoj"]
+[ext_resource type="Script" uid="uid://bnjxby0v4dxu2" path="res://modules/enemy_boss/is_player_in_range.gd" id="9_3ygnw"]
+[ext_resource type="Script" uid="uid://dirb2dehowauc" path="res://modules/enemy_boss/arrow.gd" id="10_3ygnw"]
+[ext_resource type="PackedScene" uid="uid://bg1m54whoscje" path="res://modules/bullet/bullet.tscn" id="11_5t7g5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7qtig"]
 atlas = ExtResource("1_gfn0u")
@@ -68,7 +70,7 @@ shape = SubResource("CapsuleShape2D_h5koh")
 [node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("3_n1hlf")
 actor_node_path = NodePath("..")
-blackboard = NodePath("@Node@64335")
+blackboard = NodePath("@Node@29671")
 actor = NodePath("..")
 metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 
@@ -80,17 +82,12 @@ metadata/_custom_type_script = "uid://8hn4kne15ac5"
 script = ExtResource("5_hoo2s")
 metadata/_custom_type_script = "uid://cg016dbe7gs1x"
 
-[node name="InverterDecorator" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1"]
-script = ExtResource("6_hdece")
-metadata/_custom_type_script = "uid://crkjak4kyv56m"
-
-[node name="IsHealthAbove" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/InverterDecorator"]
+[node name="IsHealthAbove" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1"]
 script = ExtResource("6_hoo2s")
 metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 
 [node name="AttackCooldown" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1" node_paths=PackedStringArray("timer")]
 script = ExtResource("8_wwyoj")
-attack = "lunge"
 timer = NodePath("Timer")
 metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 
@@ -98,51 +95,76 @@ metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 wait_time = 2.0
 one_shot = true
 
-[node name="SelectorRandomComposite" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1"]
+[node name="SelectorComposite" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1"]
+script = ExtResource("4_n6bpc")
+metadata/_custom_type_script = "uid://8hn4kne15ac5"
+
+[node name="RandomLunge" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorComposite"]
+script = ExtResource("5_hoo2s")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="IsPlayerInRange" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorComposite/RandomLunge"]
+script = ExtResource("9_3ygnw")
+units = 150.0
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="ChooseRandomLunge" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorComposite/RandomLunge"]
 script = ExtResource("8_r53g7")
 metadata/_custom_type_script = "uid://dvnmhlldp23hg"
 
-[node name="FastLungeAttack" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorRandomComposite"]
+[node name="SlowLungeAttack" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorComposite/RandomLunge/ChooseRandomLunge"]
 script = ExtResource("5_hoo2s")
 metadata/_custom_type_script = "uid://cg016dbe7gs1x"
 
-[node name="AttackCooldown" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorRandomComposite/FastLungeAttack" node_paths=PackedStringArray("timer")]
+[node name="AttackCooldown" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorComposite/RandomLunge/ChooseRandomLunge/SlowLungeAttack" node_paths=PackedStringArray("timer")]
 script = ExtResource("8_wwyoj")
-attack = "lunge"
 timer = NodePath("Timer")
 metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 
-[node name="Timer" type="Timer" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorRandomComposite/FastLungeAttack/AttackCooldown"]
+[node name="Timer" type="Timer" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorComposite/RandomLunge/ChooseRandomLunge/SlowLungeAttack/AttackCooldown"]
 wait_time = 5.0
 one_shot = true
 
-[node name="GetTargetBehindPlayer" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorRandomComposite/FastLungeAttack"]
+[node name="GetTargetBehindPlayer" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorComposite/RandomLunge/ChooseRandomLunge/SlowLungeAttack"]
 script = ExtResource("7_h5koh")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
-[node name="Lunge" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorRandomComposite/FastLungeAttack"]
-script = ExtResource("8_qfsg4")
-metadata/_custom_type_script = "uid://cv74jjdrwevpr"
-
-[node name="SlowLungeAttack" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorRandomComposite"]
-script = ExtResource("5_hoo2s")
-metadata/_custom_type_script = "uid://cg016dbe7gs1x"
-
-[node name="AttackCooldown" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorRandomComposite/SlowLungeAttack" node_paths=PackedStringArray("timer")]
-script = ExtResource("8_wwyoj")
-attack = "lunge"
-timer = NodePath("Timer")
-metadata/_custom_type_script = "uid://cbnbvj8prv63i"
-
-[node name="Timer" type="Timer" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorRandomComposite/SlowLungeAttack/AttackCooldown"]
-wait_time = 5.0
-one_shot = true
-
-[node name="GetTargetBehindPlayer" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorRandomComposite/SlowLungeAttack"]
-script = ExtResource("7_h5koh")
-metadata/_custom_type_script = "uid://cv74jjdrwevpr"
-
-[node name="Lunge" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorRandomComposite/SlowLungeAttack"]
+[node name="Lunge" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorComposite/RandomLunge/ChooseRandomLunge/SlowLungeAttack"]
 script = ExtResource("8_qfsg4")
 speed = 200.0
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="FastLungeAttack" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorComposite/RandomLunge/ChooseRandomLunge"]
+script = ExtResource("5_hoo2s")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="AttackCooldown" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorComposite/RandomLunge/ChooseRandomLunge/FastLungeAttack" node_paths=PackedStringArray("timer")]
+script = ExtResource("8_wwyoj")
+timer = NodePath("Timer")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="Timer" type="Timer" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorComposite/RandomLunge/ChooseRandomLunge/FastLungeAttack/AttackCooldown"]
+wait_time = 5.0
+one_shot = true
+
+[node name="GetTargetBehindPlayer" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorComposite/RandomLunge/ChooseRandomLunge/FastLungeAttack"]
+script = ExtResource("7_h5koh")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="Lunge" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorComposite/RandomLunge/ChooseRandomLunge/FastLungeAttack"]
+script = ExtResource("8_qfsg4")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="ArrowAttack" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorComposite"]
+script = ExtResource("5_hoo2s")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="IsPlayerInRange" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorComposite/ArrowAttack"]
+script = ExtResource("9_3ygnw")
+units = 700.0
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="ShootArrow" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorComposite/ArrowAttack"]
+script = ExtResource("10_3ygnw")
+bullet_scene = ExtResource("11_5t7g5")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
