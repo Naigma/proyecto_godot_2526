@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cft5bk1ifxgbt"]
+
+[ext_resource type="Script" uid="uid://4555122mflrh" path="res://modules/menu/level_select.gd" id="1_qklcg"]
+
+[node name="LevelSelect" type="Button"]
+offset_right = 49.0
+offset_bottom = 31.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Level"
+script = ExtResource("1_qklcg")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
