@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://cbki2yaqclvgf"]
+[gd_scene load_steps=10 format=4 uid="uid://cbki2yaqclvgf"]
 
 [ext_resource type="TileSet" uid="uid://c00rfo6hvshyu" path="res://modules/levels/main_tileset.tres" id="1_ig1ia"]
 [ext_resource type="PackedScene" uid="uid://dqpskonrnh6cg" path="res://modules/player/player.tscn" id="2_lpqdx"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cb7kjdp1egkdu" path="res://modules/enemy_wingardium/enemy_wingardium.tscn" id="5_u48ui"]
 [ext_resource type="PackedScene" uid="uid://ccfy6fv8o6y8r" path="res://modules/enemy_stupid/enemy_stupid.tscn" id="6_jnytf"]
 [ext_resource type="PackedScene" uid="uid://ylarvawkus4a" path="res://modules/enemy_sword/enemy_sword.tscn" id="7_wmdf4"]
+[ext_resource type="PackedScene" uid="uid://jd8qicwni0tu" path="res://modules/pick_ups/pick_up.tscn" id="8_jnytf"]
+[ext_resource type="PackedScene" uid="uid://c7k0vk44el5o1" path="res://modules/breakable/breakable.tscn" id="9_wmdf4"]
 
 [node name="Level13" type="Node2D"]
 
@@ -34,10 +36,10 @@ position = Vector2(2665, 769)
 position = Vector2(2320, 1226)
 
 [node name="EnemyStupid" parent="." instance=ExtResource("6_jnytf")]
-position = Vector2(1592, 1000)
+position = Vector2(1591, 1000)
 
 [node name="EnemyStupid2" parent="." instance=ExtResource("6_jnytf")]
-position = Vector2(1593, 995)
+position = Vector2(1605, 1032)
 
 [node name="EnemyStupid3" parent="." instance=ExtResource("6_jnytf")]
 position = Vector2(1566, 968)
@@ -61,19 +63,19 @@ position = Vector2(1571, 1030)
 position = Vector2(1605, 981)
 
 [node name="EnemyStupid10" parent="." instance=ExtResource("6_jnytf")]
-position = Vector2(1593, 995)
+position = Vector2(1624, 988)
 
 [node name="EnemyStupid11" parent="." instance=ExtResource("6_jnytf")]
-position = Vector2(1593, 995)
+position = Vector2(1616, 965)
 
 [node name="EnemyStupid12" parent="." instance=ExtResource("6_jnytf")]
-position = Vector2(1593, 995)
+position = Vector2(1580, 958)
 
 [node name="EnemyStupid13" parent="." instance=ExtResource("6_jnytf")]
-position = Vector2(1593, 995)
+position = Vector2(1559, 995)
 
 [node name="EnemyStupid14" parent="." instance=ExtResource("6_jnytf")]
-position = Vector2(1593, 995)
+position = Vector2(1612, 1001)
 
 [node name="EnemyStupid15" parent="." instance=ExtResource("6_jnytf")]
 position = Vector2(1608, 1016)
@@ -92,3 +94,19 @@ position = Vector2(1496, 1232)
 
 [node name="EnemyWingardium3" parent="." instance=ExtResource("5_u48ui")]
 position = Vector2(2858, 778)
+
+[node name="PickUp" parent="." instance=ExtResource("8_jnytf")]
+position = Vector2(2005, 1027)
+pick_type = "heart"
+
+[node name="Breakable" parent="." instance=ExtResource("9_wmdf4")]
+position = Vector2(2396, 1133)
+pick_up_type = "egg"
+
+[node name="Breakable2" parent="." instance=ExtResource("9_wmdf4")]
+position = Vector2(2902, 996)
+pick_up_type = "heart"
+
+[node name="Breakable3" parent="." instance=ExtResource("9_wmdf4")]
+position = Vector2(2294, 714)
+pick_up_type = "heart"

@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://dk3011ekt6e3g"]
+
+[ext_resource type="PackedScene" uid="uid://cft5bk1ifxgbt" path="res://modules/menu/level_select.tscn" id="1_y6yms"]
+[ext_resource type="PackedScene" uid="uid://ej6ktx34a1gb" path="res://modules/levels/hub/hub.tscn" id="2_s1ht4"]
+[ext_resource type="PackedScene" uid="uid://dyphuayq0com3" path="res://modules/levels/level_76/level76.tscn" id="3_fiq2q"]
+[ext_resource type="PackedScene" uid="uid://ba0dae1spd3gl" path="res://modules/levels/level_67/level_67.tscn" id="4_kv8gk"]
+[ext_resource type="PackedScene" uid="uid://cbki2yaqclvgf" path="res://modules/levels/level 13/level 13.tscn" id="5_o2qf2"]
+[ext_resource type="PackedScene" uid="uid://717uvd3c5kuo" path="res://modules/levels/level_1/level1.tscn" id="6_qe643"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="LevelSelect" parent="GridContainer" instance=ExtResource("1_y6yms")]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Boss Level"
+level_name = "Hub"
+level_scene = ExtResource("2_s1ht4")
+
+[node name="LevelSelect2" parent="GridContainer" instance=ExtResource("1_y6yms")]
+layout_mode = 2
+size_flags_vertical = 6
+level_name = "Level  1"
+level_scene = ExtResource("3_fiq2q")
+
+[node name="LevelSelect3" parent="GridContainer" instance=ExtResource("1_y6yms")]
+layout_mode = 2
+size_flags_vertical = 6
+level_name = "Level 2"
+level_scene = ExtResource("4_kv8gk")
+
+[node name="LevelSelect4" parent="GridContainer" instance=ExtResource("1_y6yms")]
+layout_mode = 2
+size_flags_vertical = 6
+level_name = "Level 3"
+level_scene = ExtResource("5_o2qf2")
+
+[node name="LevelSelect5" parent="GridContainer" instance=ExtResource("1_y6yms")]
+layout_mode = 2
+size_flags_vertical = 6
+level_name = "Boss level"
+level_scene = ExtResource("6_qe643")
