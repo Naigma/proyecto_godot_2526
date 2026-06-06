@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=4 uid="uid://717uvd3c5kuo"]
+[gd_scene load_steps=7 format=4 uid="uid://717uvd3c5kuo"]
 
 [ext_resource type="TileSet" uid="uid://c00rfo6hvshyu" path="res://modules/levels/main_tileset.tres" id="1_o35ax"]
 [ext_resource type="PackedScene" uid="uid://dqpskonrnh6cg" path="res://modules/player/player.tscn" id="2_bmw4s"]
 [ext_resource type="PackedScene" uid="uid://efldpoespk1r" path="res://modules/enemy_boss/enemy_boss.tscn" id="3_bmw4s"]
+[ext_resource type="PackedScene" uid="uid://ylarvawkus4a" path="res://modules/enemy_sword/enemy_sword.tscn" id="4_54ae7"]
+[ext_resource type="PackedScene" uid="uid://cb7kjdp1egkdu" path="res://modules/enemy_wingardium/enemy_wingardium.tscn" id="5_iejvo"]
+[ext_resource type="PackedScene" uid="uid://ccfy6fv8o6y8r" path="res://modules/enemy_stupid/enemy_stupid.tscn" id="6_p8pux"]
 
 [node name="Level1" type="Node2D"]
 
@@ -21,3 +24,20 @@ position = Vector2(-344, 16)
 
 [node name="EnemyBoss" parent="." instance=ExtResource("3_bmw4s")]
 position = Vector2(-168, -16)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="EnemySword" parent="Enemies" instance=ExtResource("4_54ae7")]
+position = Vector2(-168, 16)
+
+[node name="EnemyWingardium" parent="Enemies" instance=ExtResource("5_iejvo")]
+position = Vector2(56, -128)
+
+[node name="EnemyStupid" parent="Enemies" instance=ExtResource("6_p8pux")]
+position = Vector2(392, -24)
+
+[node name="EnemyStupid2" parent="Enemies" instance=ExtResource("6_p8pux")]
+position = Vector2(400, -8)
+
+[node name="EnemyStupid3" parent="Enemies" instance=ExtResource("6_p8pux")]
+position = Vector2(680, -32)
