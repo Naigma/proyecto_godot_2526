@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dyphuayq0com3" path="res://modules/levels/level_76/level76.tscn" id="3_fiq2q"]
 [ext_resource type="PackedScene" uid="uid://ba0dae1spd3gl" path="res://modules/levels/level_67/level_67.tscn" id="4_kv8gk"]
 [ext_resource type="PackedScene" uid="uid://cbki2yaqclvgf" path="res://modules/levels/level 13/level 13.tscn" id="5_o2qf2"]
-[ext_resource type="PackedScene" uid="uid://717uvd3c5kuo" path="res://modules/levels/level_1/level1.tscn" id="6_qe643"]
+[ext_resource type="PackedScene" uid="uid://717uvd3c5kuo" path="res://modules/levels/level_76/level1.tscn" id="6_qe643"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3

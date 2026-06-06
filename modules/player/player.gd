@@ -1,14 +1,14 @@
 extends CharacterBody2D
 class_name Player
 
-@export var bullet_scene: PackedScene
-
+@export var bullet_scene: PackedScene      
 @onready var sprite_player: AnimatedSprite2D = $SpritePlayer
 @export var speed : float = 100.00
 @onready var interaction_area: Area2D = $InteractionArea
 @onready var weapon_pivot: Node2D = $WeaponPivot
 @export var max_health: int = 6
 @export var firerate : float = 1.0
+
 
 var health: int = max_health
 var can_shoot: bool = true
@@ -67,7 +67,7 @@ func _process(delta: float) -> void:
 		sprite_player.stop()
 	else:
 		sprite_player.play("walk")
-		
+	
 	if Input.is_action_just_pressed("interact"):
 		var bodies = interaction_area.get_overlapping_bodies()
 		for body in bodies:
