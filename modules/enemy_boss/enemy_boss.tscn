@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://efldpoespk1r"]
+[gd_scene load_steps=25 format=3 uid="uid://efldpoespk1r"]
 
 [ext_resource type="Texture2D" uid="uid://huxpbx5og7fr" path="res://assets/dungeon_tileset_ii/tileset_jonathan.png" id="1_gfn0u"]
 [ext_resource type="Script" uid="uid://kru2i2q1lt6g" path="res://modules/enemy_boss/enemy_boss.gd" id="1_gkl0h"]
@@ -13,6 +13,11 @@
 [ext_resource type="Script" uid="uid://bnjxby0v4dxu2" path="res://modules/enemy_boss/is_player_in_range.gd" id="9_3ygnw"]
 [ext_resource type="Script" uid="uid://dirb2dehowauc" path="res://modules/enemy_boss/arrow.gd" id="10_3ygnw"]
 [ext_resource type="PackedScene" uid="uid://bqhiftu8xl0vg" path="res://modules/enemy_boss/boss_bullet.tscn" id="13_3ygnw"]
+[ext_resource type="Script" uid="uid://crkjak4kyv56m" path="res://addons/beehave/nodes/decorators/inverter.gd" id="14_5t7g5"]
+[ext_resource type="PackedScene" uid="uid://ccfy6fv8o6y8r" path="res://modules/enemy_stupid/enemy_stupid.tscn" id="16_ltiji"]
+[ext_resource type="PackedScene" uid="uid://cb7kjdp1egkdu" path="res://modules/enemy_wingardium/enemy_wingardium.tscn" id="17_qsg3k"]
+[ext_resource type="Script" uid="uid://bx17qrh1uk43y" path="res://modules/enemy_boss/generate_enemy.gd" id="17_woy2e"]
+[ext_resource type="PackedScene" uid="uid://bnb65r4ewgdbb" path="res://modules/enemy_kami/enemy_kami.tscn" id="18_c73ip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7qtig"]
 atlas = ExtResource("1_gfn0u")
@@ -70,7 +75,7 @@ shape = SubResource("CapsuleShape2D_h5koh")
 [node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("3_n1hlf")
 actor_node_path = NodePath("..")
-blackboard = NodePath("@Node@65821")
+blackboard = NodePath("@Node@47409")
 actor = NodePath("..")
 metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 
@@ -167,4 +172,68 @@ metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 [node name="ShootArrow" type="Node" parent="BeehaveTree/SelectorComposite/Phase 1/SelectorComposite/ArrowAttack"]
 script = ExtResource("10_3ygnw")
 bullet_scene = ExtResource("13_3ygnw")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="Phase 2" type="Node" parent="BeehaveTree/SelectorComposite"]
+script = ExtResource("5_hoo2s")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="InverterDecorator" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2"]
+script = ExtResource("14_5t7g5")
+metadata/_custom_type_script = "uid://crkjak4kyv56m"
+
+[node name="IsHealthAbove" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/InverterDecorator"]
+script = ExtResource("6_hoo2s")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="AttackCooldown" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2" node_paths=PackedStringArray("timer")]
+script = ExtResource("8_wwyoj")
+timer = NodePath("Timer")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="Timer" type="Timer" parent="BeehaveTree/SelectorComposite/Phase 2/AttackCooldown"]
+wait_time = 2.0
+one_shot = true
+
+[node name="SelectorComposite" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2"]
+script = ExtResource("4_n6bpc")
+metadata/_custom_type_script = "uid://8hn4kne15ac5"
+
+[node name="GenetateAttack" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite"]
+script = ExtResource("5_hoo2s")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="IsPlayerInRange" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenetateAttack"]
+script = ExtResource("9_3ygnw")
+units = 60.0
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="AttackCooldown" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenetateAttack" node_paths=PackedStringArray("timer")]
+script = ExtResource("8_wwyoj")
+timer = NodePath("Timer")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="Timer" type="Timer" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenetateAttack/AttackCooldown"]
+wait_time = 5.045
+one_shot = true
+
+[node name="SelectorRandomComposite" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenetateAttack"]
+script = ExtResource("8_r53g7")
+metadata/_custom_type_script = "uid://dvnmhlldp23hg"
+
+[node name="GenerateEnemyKami" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenetateAttack/SelectorRandomComposite"]
+script = ExtResource("17_woy2e")
+bullet_scene = ExtResource("18_c73ip")
+n_enemies = 3
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="GenerateEnemyStupid" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenetateAttack/SelectorRandomComposite"]
+script = ExtResource("17_woy2e")
+bullet_scene = ExtResource("16_ltiji")
+n_enemies = 10
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="GenerateEnemyWingardium" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenetateAttack/SelectorRandomComposite"]
+script = ExtResource("17_woy2e")
+bullet_scene = ExtResource("17_qsg3k")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
