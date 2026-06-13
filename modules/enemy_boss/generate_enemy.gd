@@ -24,4 +24,4 @@ func generate(actor: Node):
 	
 	instance.global_position = actor.global_position + random_vector
 	
-	get_parent().add_child(instance)
+	actor.get_parent().add_child(instance)
