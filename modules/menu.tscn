@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dk3011ekt6e3g"]
+[gd_scene load_steps=8 format=3 uid="uid://dk3011ekt6e3g"]
 
 [ext_resource type="PackedScene" uid="uid://cft5bk1ifxgbt" path="res://modules/menu/level_select.tscn" id="1_y6yms"]
 [ext_resource type="PackedScene" uid="uid://ej6ktx34a1gb" path="res://modules/levels/hub/hub.tscn" id="2_s1ht4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ba0dae1spd3gl" path="res://modules/levels/level_67/level_67.tscn" id="4_kv8gk"]
 [ext_resource type="PackedScene" uid="uid://cbki2yaqclvgf" path="res://modules/levels/level 13/level 13.tscn" id="5_o2qf2"]
 [ext_resource type="PackedScene" uid="uid://717uvd3c5kuo" path="res://modules/levels/level_76/level1.tscn" id="6_qe643"]
+[ext_resource type="PackedScene" uid="uid://cd4x2pdtg3433" path="res://modules/levels/Boss level/boss level.tscn" id="7_s1ht4"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -37,6 +38,12 @@ text = "Boss Level"
 level_name = "Hub"
 level_scene = ExtResource("2_s1ht4")
 
+[node name="LevelSelect1" parent="GridContainer" instance=ExtResource("1_y6yms")]
+layout_mode = 2
+size_flags_vertical = 6
+level_name = "level 1"
+level_scene = ExtResource("6_qe643")
+
 [node name="LevelSelect2" parent="GridContainer" instance=ExtResource("1_y6yms")]
 layout_mode = 2
 size_flags_vertical = 6
@@ -59,4 +66,4 @@ level_scene = ExtResource("5_o2qf2")
 layout_mode = 2
 size_flags_vertical = 6
 level_name = "Boss level"
-level_scene = ExtResource("6_qe643")
+level_scene = ExtResource("7_s1ht4")
