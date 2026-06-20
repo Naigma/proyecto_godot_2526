@@ -20,4 +20,4 @@ func shoot(actor: Node):
 	instance.global_position = actor.global_position
 	instance.look_at(player.global_position)
 	
-	get_parent().add_child(instance)
+	actor.get_parent().add_child(instance)
