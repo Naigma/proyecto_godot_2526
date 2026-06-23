@@ -207,41 +207,41 @@ one_shot = true
 script = ExtResource("4_n6bpc")
 metadata/_custom_type_script = "uid://8hn4kne15ac5"
 
-[node name="GenetateAttack" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite"]
+[node name="GenerateAttack" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite"]
 script = ExtResource("5_hoo2s")
 metadata/_custom_type_script = "uid://cg016dbe7gs1x"
 
-[node name="IsPlayerInRange" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenetateAttack"]
+[node name="IsPlayerInRange" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenerateAttack"]
 script = ExtResource("9_3ygnw")
-units = 100.0
+units = 500.0
 metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 
-[node name="AttackCooldown" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenetateAttack" node_paths=PackedStringArray("timer")]
+[node name="AttackCooldown" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenerateAttack" node_paths=PackedStringArray("timer")]
 script = ExtResource("8_wwyoj")
 timer = NodePath("Timer")
 metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 
-[node name="Timer" type="Timer" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenetateAttack/AttackCooldown"]
+[node name="Timer" type="Timer" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenerateAttack/AttackCooldown"]
 wait_time = 5.045
 one_shot = true
 
-[node name="SelectorRandomComposite" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenetateAttack"]
+[node name="SelectorRandomComposite" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenerateAttack"]
 script = ExtResource("8_r53g7")
 metadata/_custom_type_script = "uid://dvnmhlldp23hg"
 
-[node name="GenerateEnemyKami" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenetateAttack/SelectorRandomComposite"]
+[node name="GenerateEnemyKami" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenerateAttack/SelectorRandomComposite"]
 script = ExtResource("17_woy2e")
 bullet_scene = ExtResource("18_c73ip")
 n_enemies = 3
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
-[node name="GenerateEnemyStupid" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenetateAttack/SelectorRandomComposite"]
+[node name="GenerateEnemyStupid" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenerateAttack/SelectorRandomComposite"]
 script = ExtResource("17_woy2e")
 bullet_scene = ExtResource("16_ltiji")
 n_enemies = 10
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
-[node name="GenerateEnemyWingardium" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenetateAttack/SelectorRandomComposite"]
+[node name="GenerateEnemyWingardium" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenerateAttack/SelectorRandomComposite"]
 script = ExtResource("17_woy2e")
 bullet_scene = ExtResource("17_qsg3k")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
