@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://717uvd3c5kuo"]
+[gd_scene load_steps=8 format=4 uid="uid://717uvd3c5kuo"]
 
 [ext_resource type="TileSet" uid="uid://c00rfo6hvshyu" path="res://modules/levels/main_tileset.tres" id="1_o35ax"]
 [ext_resource type="PackedScene" uid="uid://dqpskonrnh6cg" path="res://modules/player/player.tscn" id="2_bmw4s"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ylarvawkus4a" path="res://modules/enemy_sword/enemy_sword.tscn" id="4_54ae7"]
 [ext_resource type="PackedScene" uid="uid://cb7kjdp1egkdu" path="res://modules/enemy_wingardium/enemy_wingardium.tscn" id="5_iejvo"]
 [ext_resource type="PackedScene" uid="uid://ccfy6fv8o6y8r" path="res://modules/enemy_stupid/enemy_stupid.tscn" id="6_p8pux"]
+[ext_resource type="PackedScene" uid="uid://cnf16s4w10rkk" path="res://modules/boss_ui/boss_ui.tscn" id="7_sng3j"]
 
 [node name="Level1" type="Node2D"]
 
@@ -41,3 +42,8 @@ position = Vector2(400, -8)
 
 [node name="EnemyStupid3" parent="Enemies" instance=ExtResource("6_p8pux")]
 position = Vector2(680, -32)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BossUi" parent="CanvasLayer" node_paths=PackedStringArray("boss") instance=ExtResource("7_sng3j")]
+boss = NodePath("../../EnemyBoss")

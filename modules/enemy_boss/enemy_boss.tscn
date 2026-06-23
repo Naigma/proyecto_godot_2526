@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://efldpoespk1r"]
+[gd_scene load_steps=29 format=3 uid="uid://efldpoespk1r"]
 
 [ext_resource type="Texture2D" uid="uid://huxpbx5og7fr" path="res://assets/dungeon_tileset_ii/tileset_jonathan.png" id="1_gfn0u"]
 [ext_resource type="Script" uid="uid://kru2i2q1lt6g" path="res://modules/enemy_boss/enemy_boss.gd" id="1_gkl0h"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://dirb2dehowauc" path="res://modules/enemy_boss/arrow.gd" id="10_3ygnw"]
 [ext_resource type="PackedScene" uid="uid://bqhiftu8xl0vg" path="res://modules/enemy_boss/boss_bullet.tscn" id="13_3ygnw"]
 [ext_resource type="Script" uid="uid://crkjak4kyv56m" path="res://addons/beehave/nodes/decorators/inverter.gd" id="14_5t7g5"]
+[ext_resource type="Script" uid="uid://cuuakfjrmowp5" path="res://modules/enemy_boss/go_to_player.gd" id="14_r42mf"]
 [ext_resource type="PackedScene" uid="uid://ccfy6fv8o6y8r" path="res://modules/enemy_stupid/enemy_stupid.tscn" id="16_ltiji"]
 [ext_resource type="PackedScene" uid="uid://cb7kjdp1egkdu" path="res://modules/enemy_wingardium/enemy_wingardium.tscn" id="17_qsg3k"]
 [ext_resource type="Script" uid="uid://bx17qrh1uk43y" path="res://modules/enemy_boss/generate_enemy.gd" id="17_woy2e"]
@@ -180,6 +181,10 @@ metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 [node name="Phase 2" type="Node" parent="BeehaveTree/SelectorComposite"]
 script = ExtResource("5_hoo2s")
 metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="GoToPlayer" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2"]
+script = ExtResource("14_r42mf")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="InverterDecorator" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2"]
 script = ExtResource("14_5t7g5")
