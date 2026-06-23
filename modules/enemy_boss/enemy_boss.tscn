@@ -222,7 +222,7 @@ timer = NodePath("Timer")
 metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 
 [node name="Timer" type="Timer" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenerateAttack/AttackCooldown"]
-wait_time = 5.045
+wait_time = 15.001
 one_shot = true
 
 [node name="SelectorRandomComposite" type="Node" parent="BeehaveTree/SelectorComposite/Phase 2/SelectorComposite/GenerateAttack"]
